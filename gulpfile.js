@@ -9,13 +9,13 @@ const del            = require('del');
 const browserSync    = require('browser-sync').create();
 
 function clean() {
-    return del('build');
+    return del(['dist/*', '!dist/.git']);
 }
 
 function pugToHtml() {
     return src('app/index.pug')
         .pipe(pug({doctype: 'html', pretty: true}))
-        .pipe(dest('build'));
+        .pipe(dest('dist'));
 }
 
 function styles() {
@@ -24,12 +24,12 @@ function styles() {
         .pipe(autoprefixer())
         .pipe(scss().on('error', scss.logError))
         .pipe(sourcemaps.write('maps'))
-        .pipe(dest('build/css'))
+        .pipe(dest('dist/css'))
         .pipe(browserSync.stream());
 }
 
 function validateHtml() {
-    return src('build/*.html')
+    return src('dist/*.html')
         .pipe(htmlValidation())
         .pipe(htmlValidation.reporter());
 }
@@ -40,7 +40,7 @@ exports.build = series(clean, parallel(styles, pugToHtml, validateHtml));
 exports.watch = function() {
     browserSync.init({
         server: {
-            baseDir: 'build'
+            baseDir: 'dist'
         }
     })
     watch('app/scss/*.scss', {ignoreInitial: false}, styles);
