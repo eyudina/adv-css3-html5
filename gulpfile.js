@@ -15,7 +15,7 @@ function clean() {
 function pugToHtml() {
     return src('app/index.pug')
         .pipe(pug({doctype: 'html', pretty: true}))
-        .pipe(dest('build'));
+        .pipe(dest('./'));
 }
 
 function styles() {
@@ -40,7 +40,7 @@ exports.build = series(clean, parallel(styles, pugToHtml, validateHtml));
 exports.watch = function() {
     browserSync.init({
         server: {
-            baseDir: 'build'
+            baseDir: './'
         }
     })
     watch('app/scss/*.scss', {ignoreInitial: false}, styles);
