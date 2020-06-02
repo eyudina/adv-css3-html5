@@ -21,8 +21,8 @@ function pugToHtml() {
 function styles() {
     return src('app/scss/*.scss')
         .pipe(sourcemaps.init())
-        .pipe(autoprefixer())
         .pipe(scss().on('error', scss.logError))
+        .pipe(autoprefixer())
         .pipe(sourcemaps.write('maps'))
         .pipe(dest('dist/css'))
         .pipe(browserSync.stream());

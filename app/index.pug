@@ -5,4 +5,24 @@ html(lang="en")
         meta(charset='UTF-8')/
         link(rel='stylesheet' href='css/styles.css')/
     body
-        h1 Hello world!
+        #wrapper
+            #banner
+                h1 Website for &#32;
+                    a.link-filled(href='https://education.gale.com/l-sfpl/online-courses/advanced-css3-html5') Advanced CSS3 and HTML5 class
+            #left-column
+                h3 Links
+                ul.nav
+                    li: a.active(href='#') Home
+                    li: a(href='http://www.w3schools.com/') Reference: W3Schools
+                    li: a(href='feedback.html') Feedback Form
+                    li: a(href='video.html') Video
+            #right-column
+                h2 Right Column Heading Here
+                p Right column content here
+                - var n = 0;
+                while n < 6
+                    .box: p Box content
+                    - n++
+            .clear
+            #footer: h5 Site by &#32;
+                a.link-filled EY

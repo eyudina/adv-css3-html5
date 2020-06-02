@@ -1,3 +1,149 @@
-h1 {
-  color: #48494b;
+@charset "UTF-8";
+
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700;800&display=swap');
+
+$font-family-heading: 'Quicksand', system-ui, -apple-system, sans-serif;
+$font-family-content: 'Open Sans', system-ui, -apple-system, sans-serif;
+
+$text-color: #28231d;
+$link-text-color: #28231d;
+
+$primary-color: tomato;
+$secondary-color: #4794ff;
+
+@function headings($from:1, $to:6) {
+  @if $from == $to {
+    @return 'h#{$from}';
+  } @else {
+    @return 'h#{$from},' + headings($from+1, $to);
+  }
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #f3f3f4;
+  font-family: $font-family-content;
+  color: $text-color;
+}
+
+#{headings(1,6)} {
+  font-family: $font-family-heading;
+  font-weight: 400;
+}
+
+#{headings(1,6)}, p, li {
+  margin-left: 15px;
+}
+
+a {
+  color: $link-text-color;
+  text-decoration: none;
+  cursor: pointer;
+  transition: color 0.25s ease-out; // CSS3
+  &:hover,
+  &:active,
+  &.active {
+    color: $primary-color;
+  }
+  &.link-filled {
+    padding: 3px 5px;
+    color: $primary-color;
+    border-bottom: 1px dashed $primary-color;
+    transition: background-color 0.3s ease-out; // CSS3
+    &:hover {
+      background-color: $primary-color;
+      color: white;
+      transition: background-color 0.3s ease-out; // CSS3
+    }
+  }
+}
+
+ul.nav {
+  margin-top: 0;
+  padding-left: 0;
+  list-style: none;
+  li {
+    padding: 10px 5px;
+    &:hover {
+      cursor: pointer;
+      a {
+        color: $primary-color;
+      }
+    }
+  }
+}
+
+#wrapper {
+  width: 960px;
+  height: 800px;
+  margin: 20px auto;
+  background-color: white;
+  & > * {
+    padding-left: 20px;
+  }
+}
+
+#banner {
+  height: 120px;
+  box-shadow: inset 0 -1px 0 #f3f3f4; // CSS3 / Not supported by IE6 - IE8
+  h1 {
+    line-height: 77px; // center h1
+  }
+}
+
+#banner, #footer {
+  border-top: 1px solid transparent; // prevent margin collapsing
+}
+
+#footer {
+  height: 80px;
+  box-shadow: inset 0 1px 0 #f3f3f4; // CSS3 / Not supported by IE6 - IE8
+}
+
+#right-column {
+  float: right;
+  width: 580px;
+  height: 600px;
+  box-shadow: inset 1px 0 0 #f3f3f4; // CSS3 / Not supported by IE6 - IE8
+  #{headings(1,6)} {
+    color: $secondary-color;
+    font-weight: 500;
+  }
+}
+
+#left-column {
+  float: left;
+  width: 340px;
+  height: 600px;
+  #{headings(1,6)} {
+    /* display: inline-block; // CSS3 */
+    width: 45px;
+    margin: 20px 0;
+    padding: 10px 15px;
+    background-color: $secondary-color;
+    font-weight: 500;
+    color: white;
+  }
+}
+
+.box {
+  float: left;
+  height: 150px;
+  width: 150px;
+  margin: 15px;
+  background-color: #e2e2e2;
+  font-weight: 500;
+  color: #636363;
+  transition: background-color 0.3s ease-out; // CSS3
+  &:hover {
+    background-color: darken(#e2e2e2, 5%);
+    cursor: pointer;
+    transition: background-color 0.3s ease-out; // CSS3
+  }
+}
+
+.clear{
+  clear: both;
 }
