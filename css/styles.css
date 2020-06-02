@@ -1,5 +1,21 @@
 @import url("https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700;800&display=swap");
+.gradient-background {
+  background: #e2e2e2;
+  background: linear-gradient(135deg, #e2e2e2, #c2c2c2); }
+  .gradient-background--soft-purple {
+    background: linear-gradient(135deg, #F97794, #623AA2); }
+  .gradient-background--orange-ice-cream {
+    background: linear-gradient(135deg, #FCCF31, #F55555); }
+  .gradient-background--blue-sea {
+    background: linear-gradient(135deg, #52E5E7, #130CB7); }
+  .gradient-background--juicy-lime {
+    background: linear-gradient(135deg, #FFF720, #3CD500); }
+  .gradient-background--summer-sunset {
+    background: linear-gradient(135deg, #FF9D6C, #BB4E75); }
+  .gradient-background--underwater {
+    background: linear-gradient(135deg, #79F1A4, #0E5CAD); }
+
 body {
   margin: 0;
   padding: 0;
@@ -24,11 +40,11 @@ a {
   a.link-filled {
     padding: 3px 5px;
     color: tomato;
-    border-bottom: 1px dashed tomato;
-    transition: background-color 0.3s ease-out; }
+    border-bottom: 1px dashed tomato; }
     a.link-filled:hover {
       background-color: tomato;
-      color: white;
+      color: white; }
+    a.link-filled, a.link-filled:hover {
       transition: background-color 0.3s ease-out; }
 
 ul.nav {
@@ -86,18 +102,30 @@ ul.nav {
     color: white; }
 
 .box {
+  position: relative;
   float: left;
   height: 150px;
   width: 150px;
   margin: 15px;
   background-color: #e2e2e2;
   font-weight: 500;
-  color: #636363;
-  transition: background-color 0.3s ease-out; }
+  color: white;
+  border-radius: 3px;
+  box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.08), 0 6px 8px 0 rgba(0, 0, 0, 0.05); }
+  .box, .box:hover {
+    transition: transform 0.3s ease-in-out; }
   .box:hover {
-    background-color: #d5d5d5;
     cursor: pointer;
-    transition: background-color 0.3s ease-out; }
+    transform: scale(1.05, 1.05); }
+    .box:hover:after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      right: 0;
+      background: white;
+      opacity: .05; }
 
 .clear {
   clear: both; }
