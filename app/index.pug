@@ -19,10 +19,9 @@ html(lang="en")
             #right-column
                 h2 Right Column Heading Here
                 p Right column content here
-                - var n = 0;
-                while n < 6
-                    .box: p Box content
-                    - n++
+                - var gradientColors = ['--soft-purple', '--orange-ice-cream', '--blue-sea', '--juicy-lime', '--summer-sunset', '--underwater'];
+                each color in gradientColors
+                    .box(class='gradient-background'+color): p Box content
             .clear
             #footer: h5 Site by &#32;
                 a.link-filled EY

@@ -7,10 +7,32 @@ $font-family-heading: 'Quicksand', system-ui, -apple-system, sans-serif;
 $font-family-content: 'Open Sans', system-ui, -apple-system, sans-serif;
 
 $text-color: #28231d;
-$link-text-color: #28231d;
 
 $primary-color: tomato;
 $secondary-color: #4794ff;
+
+$gradient-color-list: (
+    'soft-purple': (#F97794, #623AA2),
+    'orange-ice-cream': (#FCCF31, #F55555),
+    'blue-sea': (#52E5E7, #130CB7),
+    'juicy-lime': (#FFF720, #3CD500),
+    'summer-sunset': (#FF9D6C, #BB4E75),
+    'underwater': (#79F1A4, #0E5CAD)
+);
+
+@mixin gradient($colors) {
+  background: linear-gradient(135deg, $colors);
+}
+
+.gradient-background {
+  background: #e2e2e2;
+  background: linear-gradient(135deg, #e2e2e2, #c2c2c2);
+  @each $color-name, $colors in $gradient-color-list {
+    &--#{$color-name} {
+      @include gradient($colors);
+    }
+  }
+}
 
 @function headings($from:1, $to:6) {
   @if $from == $to {
@@ -38,7 +60,7 @@ body {
 }
 
 a {
-  color: $link-text-color;
+  color: $text-color;
   text-decoration: none;
   cursor: pointer;
   transition: color 0.25s ease-out; // CSS3
@@ -51,10 +73,11 @@ a {
     padding: 3px 5px;
     color: $primary-color;
     border-bottom: 1px dashed $primary-color;
-    transition: background-color 0.3s ease-out; // CSS3
     &:hover {
       background-color: $primary-color;
       color: white;
+    }
+    &, &:hover {
       transition: background-color 0.3s ease-out; // CSS3
     }
   }
@@ -129,18 +152,35 @@ ul.nav {
 }
 
 .box {
+  position: relative;
   float: left;
   height: 150px;
   width: 150px;
   margin: 15px;
   background-color: #e2e2e2;
   font-weight: 500;
-  color: #636363;
-  transition: background-color 0.3s ease-out; // CSS3
+  color: white;
+  border-radius: 3px;
+  box-shadow: 0 0 20px  0 rgba(0, 0, 0, 0.08),
+              0 6px 8px 0 rgba(0, 0, 0, 0.05);
+  &, &:hover {
+    transition: transform 0.3s ease-in-out;
+  }
   &:hover {
-    background-color: darken(#e2e2e2, 5%);
     cursor: pointer;
-    transition: background-color 0.3s ease-out; // CSS3
+    transform: scale(1.05, 1.05);
+
+    // Add overlay while hovering over .box
+    &:after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      right: 0;
+      background: white;
+      opacity: .05;
+    }
   }
 }
 
