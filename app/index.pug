@@ -1,27 +1,16 @@
-doctype html
-html(lang="en")
-    head
-        title AdvHTML5&CSS3
-        meta(charset='UTF-8')/
-        link(rel='stylesheet' href='css/styles.css')/
-    body
-        #wrapper
-            #banner
-                h1 Website for &#32;
-                    a.link-filled(href='https://education.gale.com/l-sfpl/online-courses/advanced-css3-html5') Advanced CSS3 and HTML5 class
-            #left-column
-                h3 Links
-                ul.nav
-                    li: a.active(href='#') Home
-                    li: a(href='http://www.w3schools.com/') Reference: W3Schools
-                    li: a(href='feedback.html') Feedback Form
-                    li: a(href='video.html') Video
-            #right-column
-                h2 Right Column Heading Here
-                p Right column content here
-                - var gradientColors = ['--soft-purple', '--orange-ice-cream', '--blue-sea', '--juicy-lime', '--summer-sunset', '--underwater'];
-                each color in gradientColors
-                    .box(class='gradient-background'+color): p Box content
-            .clear
-            #footer: h5 Site by &#32;
-                a.link-filled EY
+extends _layout.pug
+
+block page-title
+    title Home | Advanced HTML5 & CSS3
+
+prepend sidebar
+    -var page = 'index';
+
+block content
+    #content
+        h2 Right Column Heading Here
+        p Right column content here
+        - var gradientColors = ['--soft-purple', '--orange-ice-cream', '--blue-sea', '--juicy-lime', '--summer-sunset', '--underwater'];
+        each color in gradientColors
+            div(class='box gradient-background' + color): p Box content
+        

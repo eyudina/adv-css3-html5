@@ -13,7 +13,7 @@ function clean() {
 }
 
 function pugToHtml() {
-    return src('app/index.pug')
+    return src(['app/*.pug', '!app/_*.pug'])
         .pipe(pug({doctype: 'html', pretty: true}))
         .pipe(dest('dist'));
 }
