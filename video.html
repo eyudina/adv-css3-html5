@@ -26,16 +26,43 @@
           The changing color has less to do with its surroundings but is influenced by its emotions.
           For example, gravid chameleons are dark green with blue and yellow spots.
         </p>
-        <div class="container">
-          <video width="480px" height="270px" controls poster="assets/video/posters/chameleon.png">
+        <div class="container player">
+          <video class="player__video" controls poster="assets/video/posters/chameleon.png">
             <source src="assets/video/chameleon.mp4" type="video/mp4">
             <div class="message">
-              <p class="heading">Your browser doesn't support the video tag.</p>
-              <p class="description">Click <a class="link-filled" href="https://www.google.com/chrome/">here</a>
+              <p class="message__heading">Your browser doesn't support the video tag.</p>
+              <p class="message__description">Click <a class="link-filled" href="https://www.google.com/chrome/">here</a>
                 to download the Chrome browser<br>for your operating system.
               </p>
             </div>
           </video>
+          <div class="player__controls">
+            <button class="player__controls--button" accesskey="p"><img class="player__controls--button-play" src="assets/icons/play.svg" alt="Play"/><img class="player__controls--button-pause" src="assets/icons/pause.svg" alt="Pause"/></button>
+          </div>
+          <script>
+            let player = document.querySelector('.player');
+            let video = player.querySelector('.player__video');
+            let btnPlayPause = player.querySelector('.player__controls--button');
+            let iconPlay = player.querySelector('.player__controls--button-play');
+            let iconPause = player.querySelector('.player__controls--button-pause');
+            
+            iconPause.style.display = 'none';
+            
+            btnPlayPause.addEventListener('click', togglePlay);
+            video.addEventListener('ended', togglePlayIcon);
+            video.addEventListener('play', togglePlayIcon);
+            video.addEventListener('pause', togglePlayIcon);
+            
+            function togglePlay() {
+                const playState = video.paused ? 'play' : 'pause';
+                video[playState]();
+            }
+            
+            function togglePlayIcon() {
+                iconPlay.style.display = video.paused ? 'block' : 'none';
+                iconPause.style.display = video.paused ? 'none' : 'block';
+            }
+          </script>
         </div>
       </div>
       <div class="clear"></div>

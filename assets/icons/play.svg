@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="50" height="50" viewBox="0 0 50 50" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>icons</title>
+    <desc>Created with Sketch.</desc>
+
+    <defs>
+        <rect id="rect-mask" x="0" y="0" width="49.6208531" height="24.8815166"/>
+    </defs>
+
+    <g id="icons" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="icon-play">
+            <g id="button">
+                <circle id="circle" fill="#FF6547" cx="24.8104265" cy="24.8104265" r="24.8104265"/>
+                <g id="shadow" transform="translate(33.449654, 33.717751) rotate(135.000000) translate(-33.449654, -33.717751) translate(8.449654, 21.217751)">
+                    <mask id="mask-4" fill="white">
+                        <use xlink:href="#rect-mask"/>
+                    </mask>
+                    <g id="mask"/>
+                    <circle id="circle" fill="#F35D40" mask="url(#mask-4)" cx="24.8104265" cy="24.8104265" r="24.8104265"/>
+                </g>
+            </g>
+            <g id="i-play" transform="translate(19.000000, 15.000000)" fill="#FFFFFF" fill-rule="nonzero">
+                <path d="M13.8824194,8.11241935 L2.81467742,0.535483871 C2.30354839,0.185322581 1.78854839,0 1.36048387,0 C0.532903226,0 0.0209677419,0.664193548 0.0209677419,1.77596774 L0.0209677419,18.1519355 C0.0209677419,19.2624194 0.532258065,19.9253226 1.35790323,19.9253226 C1.7866129,19.9253226 2.2933871,19.7398387 2.80564516,19.3887097 L13.8785484,11.8119355 C14.5906452,11.323871 14.9850001,10.6670968 14.9850001,9.96177419 C14.9851613,9.25693548 14.5953226,8.60032258 13.8824194,8.11241935 Z" id="Path"/>
+            </g>
+        </g>
+    </g>
+</svg>

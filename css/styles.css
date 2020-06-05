@@ -36,12 +36,12 @@ a {
   cursor: pointer;
   transition: color 0.25s ease-out; }
   a:hover, a:active, a.active {
-    color: tomato; }
+    color: #ff6347; }
   a.link-filled {
-    color: tomato;
-    border-bottom: 1px dashed tomato; }
+    color: #ff6347;
+    border-bottom: 1px dashed #ff6347; }
     a.link-filled:hover {
-      background-color: tomato;
+      background-color: #ff6347;
       color: white; }
     a.link-filled, a.link-filled:hover {
       transition: background-color 0.3s ease-out; }
@@ -55,11 +55,7 @@ ul.nav {
     ul.nav li:hover {
       cursor: pointer; }
       ul.nav li:hover a {
-        color: tomato; }
-
-video {
-  border-radius: 3px;
-  box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.08), 0 6px 8px 0 rgba(0, 0, 0, 0.05); }
+        color: #ff6347; }
 
 #wrapper {
   width: 960px;
@@ -125,15 +121,6 @@ video {
   .box:hover {
     cursor: pointer;
     transform: scale(1.05, 1.05); }
-    .box:hover:after {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      bottom: 0;
-      right: 0;
-      background: white;
-      opacity: .05; }
 
 .clear {
   clear: both; }
@@ -141,12 +128,51 @@ video {
 .message {
   max-width: 400px;
   background-color: #fff2ef;
-  border: 2px solid tomato;
+  border: 2px solid #ff6347;
   border-radius: 5px;
   font-size: 14px;
   line-height: 1.4;
   color: #8f5b5b; }
-  .message .heading {
+  .message--heading {
     font-weight: 600; }
+
+.player {
+  width: 480px; }
+  .player__video {
+    width: inherit;
+    border-radius: 3px;
+    box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.08), 0 6px 8px 0 rgba(0, 0, 0, 0.05); }
+  .player__controls {
+    margin-top: 10px;
+    text-align: center; }
+    .player__controls--button {
+      position: relative;
+      margin: 3px;
+      padding: 0;
+      width: 60px;
+      height: 60px;
+      background: #ccc;
+      border: 0;
+      border-radius: 50%;
+      box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.08), 0 6px 8px 0 rgba(0, 0, 0, 0.05); }
+      .player__controls--button:active {
+        transform: scale(0.9);
+        transition: transform 0.2s ease-in; }
+      .player__controls--button:hover {
+        cursor: pointer; }
+        .player__controls--button:hover:after {
+          content: '';
+          position: absolute;
+          top: 0;
+          left: 0;
+          bottom: 0;
+          right: 0;
+          width: inherit;
+          height: inherit;
+          border-radius: 50%;
+          background-color: rgba(255, 255, 255, 0.1); }
+      .player__controls--button img {
+        width: inherit;
+        height: inherit; }
 
 /*# sourceMappingURL=maps/styles.css.map */
