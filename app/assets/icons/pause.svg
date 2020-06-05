@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="50" height="50" viewBox="0 0 50 50" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>icons</title>
+    <desc>Created with Sketch.</desc>
+
+    <defs>
+        <rect id="rect-mask" x="0" y="0" width="49.6208531" height="24.8815166"/>
+    </defs>
+
+    <g id="icons" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="icon-pause">
+            <g id="button">
+                <circle id="circle" fill="#FFA847" cx="24.8104265" cy="24.8104265" r="24.8104265"/>
+                <g id="shadow" transform="translate(33.625592, 33.625592) rotate(135.000000) translate(-33.625592, -33.625592) translate(8.815166, 21.184834)">
+                    <mask id="mask-2" fill="white">
+                        <use xlink:href="#rect-mask"/>
+                    </mask>
+                    <g id="mask"/>
+                    <circle id="circle" fill="#F6A243" mask="url(#mask-2)" cx="24.8104265" cy="24.8104265" r="24.8104265"/>
+                </g>
+            </g>
+            <g id="i-pause" transform="translate(16.919431, 15.639810)" fill="#FFFFFF" fill-rule="nonzero">
+                <path d="M5.88624443,0 L0.654039933,0 C0.292817667,0 0,0.295546153 0,0.660134301 L0,17.823278 C0,18.1878662 0.292817667,18.4834123 0.654039933,18.4834123 L5.88624443,18.4834123 C6.24746669,18.4834123 6.54028436,18.1878662 6.54028436,17.823278 L6.54028436,0.660134301 C6.54028436,0.295546153 6.24746669,0 5.88624443,0 Z" id="Path"/>
+                <path d="M15.270169,0 L10.0379262,0 C9.67670392,0 9.38388626,0.295546153 9.38388626,0.660134301 L9.38388626,17.823278 C9.38388626,18.1878662 9.67670392,18.4834123 10.0379262,18.4834123 L15.2701307,18.4834123 C15.6313529,18.4834123 15.9241706,18.1878662 15.9241706,17.823278 L15.9241706,0.660134301 C15.9241706,0.295546153 15.6313529,0 15.270169,0 Z" id="Path"/>
+            </g>
+        </g>
+    </g>
+</svg>
