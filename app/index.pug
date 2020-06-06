@@ -7,9 +7,9 @@ prepend sidebar
     -var page = 'index';
 
 block content
-    #content
-        h2 Right Column Heading Here
-        p Right column content here
+    h2 Right Column Heading Here
+    p Right column content here
+    .container
         - var gradientColors = ['--soft-purple', '--orange-ice-cream', '--blue-sea', '--juicy-lime', '--summer-sunset', '--underwater'];
         each color in gradientColors
             div(class='box gradient-background' + color): p Box content

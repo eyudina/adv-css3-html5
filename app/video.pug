@@ -7,47 +7,46 @@ prepend sidebar
     -var page = 'video';
 
 block content
-    #content
-        h2 Veiled Chameleon &#129422;
-        p
-            | One of the characteristics of the veiled chameleon is its changing color.
-            | The changing color has less to do with its surroundings but is influenced by its emotions.
-            | For example, gravid chameleons are dark green with blue and yellow spots.
-        .container.player
-            video.player__video(controls poster='assets/video/posters/chameleon.png')
-                source(src='assets/video/chameleon.mp4' type='video/mp4')
-                .message
-                    p.message__heading Your browser doesn't support the video tag.
-                    p.message__description
-                        | Click #[a.link-filled(href='https://www.google.com/chrome/') here]
-                        | to download the Chrome browser
-                        br
-                        | for your operating system.
-            .player__controls
-                button.player__controls--button(accesskey='p')
-                    img.player__controls--button-play(src='assets/icons/play.svg' alt='Play')/
-                    img.player__controls--button-pause(src='assets/icons/pause.svg' alt='Pause')/
+    h2 Veiled Chameleon &#129422;
+    p
+        | One of the characteristics of the veiled chameleon is its changing color.
+        | The changing color has less to do with its surroundings but is influenced by its emotions.
+        | For example, gravid chameleons are dark green with blue and yellow spots.
+    .container.player
+        video.player__video(controls poster='assets/video/posters/chameleon.png')
+            source(src='assets/video/chameleon.mp4' type='video/mp4')
+            .message
+                p.message__heading Your browser doesn't support the video tag.
+                p.message__description
+                    | Click #[a.link-filled(href='https://www.google.com/chrome/') here]
+                    | to download the Chrome browser
+                    br
+                    | for your operating system.
+        .player__controls
+            button.player__controls--button(accesskey='p')
+                img.player__controls--button-play(src='assets/icons/play.svg' alt='Play')/
+                img.player__controls--button-pause(src='assets/icons/pause.svg' alt='Pause')/
 
-            script.
-                let player = document.querySelector('.player');
-                let video = player.querySelector('.player__video');
-                let btnPlayPause = player.querySelector('.player__controls--button');
-                let iconPlay = player.querySelector('.player__controls--button-play');
-                let iconPause = player.querySelector('.player__controls--button-pause');
+        script.
+            let player = document.querySelector('.player');
+            let video = player.querySelector('.player__video');
+            let btnPlayPause = player.querySelector('.player__controls--button');
+            let iconPlay = player.querySelector('.player__controls--button-play');
+            let iconPause = player.querySelector('.player__controls--button-pause');
 
-                iconPause.style.display = 'none';
+            iconPause.style.display = 'none';
 
-                btnPlayPause.addEventListener('click', togglePlay);
-                video.addEventListener('ended', togglePlayIcon);
-                video.addEventListener('play', togglePlayIcon);
-                video.addEventListener('pause', togglePlayIcon);
+            btnPlayPause.addEventListener('click', togglePlay);
+            video.addEventListener('ended', togglePlayIcon);
+            video.addEventListener('play', togglePlayIcon);
+            video.addEventListener('pause', togglePlayIcon);
 
-                function togglePlay() {
-                    const playState = video.paused ? 'play' : 'pause';
-                    video[playState]();
-                }
+            function togglePlay() {
+                const playState = video.paused ? 'play' : 'pause';
+                video[playState]();
+            }
 
-                function togglePlayIcon() {
-                    iconPlay.style.display = video.paused ? 'block' : 'none';
-                    iconPause.style.display = video.paused ? 'none' : 'block';
-                }
+            function togglePlayIcon() {
+                iconPlay.style.display = video.paused ? 'block' : 'none';
+                iconPause.style.display = video.paused ? 'none' : 'block';
+            }

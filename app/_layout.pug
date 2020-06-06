@@ -7,24 +7,24 @@ html(lang="en")
     link(rel='stylesheet' href='css/styles.css')/
   body
     #wrapper
-      block header
-        #banner
+      .container#header
+        block header
           h1 Website for &#32;
             a.link-filled(href='https://education.gale.com/l-sfpl/online-courses/advanced-css3-html5') Advanced CSS3 and HTML5 class
-      block sidebar
+      .container
         #sidebar
-          h3 Links
-          ul.nav
-            li: a(class=(page === 'index' ? 'active' : undefined) href='index.html') Home
-            li: a(href='http://www.w3schools.com/') Reference: W3Schools
-            li: a(class=(page === 'feedback' ? 'active' : undefined) href='feedback.html') Feedback Form
-            li: a(class=(page === 'video' ? 'active' : undefined) href='video.html') Video
-      block content
+          block sidebar
+            h3 Links
+            ul.nav
+              li: a(class=(page === 'index' ? 'active' : undefined) href='index.html') Home
+              li: a(href='http://www.w3schools.com/') Reference: W3Schools
+              li: a(class=(page === 'feedback' ? 'active' : undefined) href='feedback.html') Feedback Form
+              li: a(class=(page === 'video' ? 'active' : undefined) href='video.html') Video
         #content
-          h2 Right Column Heading Here
-          p Right column content here
-      .clear
-      block footer
-        #footer
+          block content
+            h2 Right Column Heading Here
+            p Right column content here
+      .container#footer
+        block footer
           h5 Site by &#32;
             a.link-filled EY

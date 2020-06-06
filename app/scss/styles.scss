@@ -42,6 +42,10 @@ $gradient-color-list: (
   }
 }
 
+* {
+  box-sizing: border-box;
+}
+
 body {
   margin: 0;
   padding: 0;
@@ -53,9 +57,12 @@ body {
 #{headings(1,6)} {
   font-family: $font-family-heading;
   font-weight: 400;
+  & + p {
+    margin-top: 0;
+  }
 }
 
-#{headings(1,6)}, .container, p, li {
+#{headings(1,6)}, p, li {
   margin-left: 15px;
 }
 
@@ -63,7 +70,7 @@ a {
   color: $text-color;
   text-decoration: none;
   cursor: pointer;
-  transition: color 0.25s ease-out; // CSS3
+  transition: color 0.25s ease-out;
   &:hover,
   &:active,
   &.active {
@@ -77,7 +84,7 @@ a {
       color: white;
     }
     &, &:hover {
-      transition: background-color 0.3s ease-out; // CSS3
+      transition: background-color 0.3s ease-out;
     }
   }
 }
@@ -97,64 +104,66 @@ ul.nav {
   }
 }
 
+.container {
+  display: flex;
+  flex-wrap: wrap;
+}
+
 #wrapper {
   width: 960px;
-  height: 800px;
   margin: 20px auto;
   background-color: white;
-  & > * {
-    padding-left: 20px;
-  }
 }
 
-#banner {
+#header, #sidebar, #content, #footer {
+  padding-left: 20px;
+  padding-right: 60px;
+}
+
+#header {
+  display: flex;
+  align-items: center;
   height: 120px;
-  box-shadow: inset 0 -1px 0 #f3f3f4; // CSS3 / Not supported by IE6 - IE8
-  h1 {
-    line-height: 77px; // center h1
-  }
-}
-
-#banner, #footer {
-  border-top: 1px solid transparent; // prevent margin collapsing
+  box-shadow: inset 0 -1px 0 #f3f3f4;
 }
 
 #footer {
+  display: flex;
+  align-items: center;
   height: 80px;
-  box-shadow: inset 0 1px 0 #f3f3f4; // CSS3 / Not supported by IE6 - IE8
+  box-shadow: inset 0 1px 0 #f3f3f4;
 }
 
 #content {
-  float: right;
-  width: 580px;
-  height: 600px;
-  box-shadow: inset 1px 0 0 #f3f3f4; // CSS3 / Not supported by IE6 - IE8
+  display: flex;
+  flex-direction: column;
+  flex: 4 1 500px;
+  min-height: 620px;
+  box-shadow: inset 1px 0 0 #f3f3f4;
   #{headings(1,6)} {
     color: $secondary-color;
     font-weight: 500;
   }
-  p {
+  .container {
+    margin-left: 15px;
+  }
+  & > p {
     max-width: 480px;
   }
 }
 
 #sidebar {
-  float: left;
-  width: 340px;
-  height: 600px;
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 280px;
   #{headings(1,6)} {
-    /* display: inline-block; // CSS3 */
-    width: 45px;
+    align-self: flex-start;
     margin: 20px 0;
     padding: 10px 15px;
     background-color: $secondary-color;
     font-weight: 500;
     color: white;
   }
-}
-
-.container {
-  margin-top: 20px;
 }
 
 .box {
@@ -178,10 +187,6 @@ ul.nav {
   }
 }
 
-.clear{
-  clear: both;
-}
-
 .message {
   max-width: 400px;
   background-color: lighten($primary-color, 33%);
@@ -196,27 +201,32 @@ ul.nav {
 }
 
 .player {
+  display: flex;
+  flex-direction: column;
   width: 480px;
   &__video {
     width: inherit;
+    height: 270px;
     border-radius: 3px;
-    box-shadow: 0 0 20px  0 rgba(0, 0, 0, 0.08),
-                0 6px 8px 0 rgba(0, 0, 0, 0.05);
+    box-shadow: 0 0  20px  0 rgba(0, 0, 0, 0.08),
+                0 6px 8px  0 rgba(0, 0, 0, 0.05);
   }
   &__controls {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
     margin-top: 10px;
-    text-align: center;
     &--button {
       position: relative;
       margin: 3px;
       padding: 0;
       width: 60px;
       height: 60px;
-      background: #ccc;
+      background: transparent;
       border: 0;
       border-radius: 50%;
-      box-shadow: 0 0 20px  0 rgba(0, 0, 0, 0.08),
-                  0 6px 8px 0 rgba(0, 0, 0, 0.05);
+      box-shadow: 0 0  20px  0 rgba(0, 0, 0, 0.08),
+                  0 6px 8px  0 rgba(0, 0, 0, 0.05);
       &:active {
         transform: scale(.9);
         transition: transform 0.2s ease-in;
