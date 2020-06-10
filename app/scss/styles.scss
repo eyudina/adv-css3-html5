@@ -6,7 +6,7 @@
 $font-family-heading: 'Quicksand', system-ui, -apple-system, sans-serif;
 $font-family-content: 'Open Sans', system-ui, -apple-system, sans-serif;
 
-$text-color: #28231d;
+$text-color: #58586e; //#28231d
 
 $primary-color: #ff6347;
 $secondary-color: #4794ff;
@@ -251,5 +251,213 @@ ul.nav {
         height: inherit;
       }
     }
+  }
+}
+
+.gradient-mixer {
+
+}
+
+.g-controls {
+  display: flex;
+  flex-direction: column;
+  margin-top: 20px;
+  & > *:not(:first-child) {
+    margin-top: 10px;
+  }
+}
+
+.g-controls__group {
+  padding: 5px 10px;
+  border: 1px solid #f3f3f4;
+  border-radius: 5px;
+}
+
+.g-color-picker {
+  display: inline-block;
+  padding: 5px 18px;
+  &:not(:last-child) {
+    margin-right: 5px;
+  }
+  label {
+    font-size: 14px;
+    text-transform: uppercase;
+    color: #595959;
+  }
+  @-moz-document url-prefix() {
+    display: inline-flex;
+    align-items: center;
+    label + * {
+      margin-left: 5px;
+    }
+  }
+}
+
+.g-radio__container {
+  margin: 5px 15px;
+  border-radius: 3px;
+  background-color: #d3d3d3;
+}
+
+.g-radio {
+  display: inline-block;
+  float: left;
+  font-size: 15px;
+  color: #818388;
+  & > * {
+    cursor: pointer;
+  }
+  &:first-child label {
+    border-top-left-radius: 3px;
+    border-bottom-left-radius: 3px;
+  }
+  &:last-child label {
+    border-top-right-radius: 3px;
+    border-bottom-right-radius: 3px;
+  }
+  input[type='radio'] {
+    margin: 0;
+    width: 12px;
+    height: 12px;
+    visibility: hidden;
+    & + label {
+      display: inline-block;
+      margin-left: -16px;
+      padding: 5px 16px;
+      background-color: #d3d3d3;
+    }
+    &:checked + label {
+      background-color: $secondary-color;
+      color: white;
+    }
+    &:not(:checked) + label:hover {
+      background-color: lighten(#d3d3d3, 3%);
+    }
+  }
+}
+
+.g-input {
+  display: inline-flex;
+  margin: 10px 5px;
+  input[type=number]::-webkit-inner-spin-button,
+  input[type=number]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+  }
+  input {
+    -webkit-appearance: textfield;
+    -moz-appearance: textfield;
+    appearance: textfield;
+    width: 50px;
+    height: 30px;
+    font-size: 14px;
+    border: 1px solid #d3d3d3;
+    text-align: center;
+    color: $text-color;
+    & + .g-input__button--left {
+      border-left: none;
+    }
+    & + .g-input__button--right {
+      border-right: none;
+    }
+  }
+}
+
+.g-input__label {
+  font-size: 14px;
+  color: #595959;
+}
+
+.g-input__button {
+  margin: 0;
+  height: 30px;
+  width: 30px;
+  border: 0;
+  background-color: $secondary-color;
+  color: white;
+  cursor: pointer;
+  opacity: .7;
+  &, &:hover {
+    transition: opacity 0.2s ease-in;
+  }
+  &:hover {
+    opacity: 1;
+  }
+}
+
+.g-input__button--left {
+  border-top-left-radius: 3px;
+  border-bottom-left-radius: 3px;
+  & ~ .g-input__number-field {
+    border-left: none;
+  }
+}
+
+.g-input__button--right {
+  order: 3;
+  border-top-right-radius: 3px;
+  border-bottom-right-radius: 3px;
+  & ~ .g-input__number-field {
+    border-right: none;
+  }
+}
+
+.g-output {
+  margin-top: 20px;
+  .g-output__button--copy {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 5px 10px;
+    background-color: transparentize($text-color, .9);
+    border: 1px solid white;
+    border-radius: 5px;
+    font-size: 12px;
+    text-align: center;
+    opacity: 0;
+    transition: opacity 0.3s ease-out;
+  }
+  &:hover .g-output__button--copy {
+    opacity: .9;
+    transition: opacity 0.3s ease-in;
+  }
+  .g-output__text--value {
+    position: absolute;
+    top: 50%;
+    left: 5px;
+    right: 0;
+    text-align: center;
+    transform: translateY(-17px);
+    font-size: 25px;
+  }
+}
+
+.g-slider {
+  -webkit-appearance: none;
+  margin: 18px 0;
+  width: 100%;
+  height: 5px;
+  background: #d3d3d3;
+  outline: none;
+  opacity: 0.7;
+  transition: opacity .2s;
+  &:hover {
+    opacity: 1;
+  }
+  &::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    border-radius: 3px;
+    background: $secondary-color;
+    cursor: pointer;
+  }
+  &::-moz-range-thumb {
+    width: 20px;
+    height: 20px;
+    border: none;
+    background: $secondary-color;
+    cursor: pointer;
   }
 }
