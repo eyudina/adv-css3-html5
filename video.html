@@ -40,30 +40,6 @@
             <div class="player__controls">
               <button class="player__controls--button" accesskey="p"><img class="player__controls--button-play" src="assets/icons/play.svg" alt="Play"/><img class="player__controls--button-pause" src="assets/icons/pause.svg" alt="Pause"/></button>
             </div>
-            <script>
-              let player = document.querySelector('.player');
-              let video = player.querySelector('.player__video');
-              let btnPlayPause = player.querySelector('.player__controls--button');
-              let iconPlay = player.querySelector('.player__controls--button-play');
-              let iconPause = player.querySelector('.player__controls--button-pause');
-              
-              iconPause.style.display = 'none';
-              
-              btnPlayPause.addEventListener('click', togglePlay);
-              video.addEventListener('ended', togglePlayIcon);
-              video.addEventListener('play', togglePlayIcon);
-              video.addEventListener('pause', togglePlayIcon);
-              
-              function togglePlay() {
-                  const playState = video.paused ? 'play' : 'pause';
-                  video[playState]();
-              }
-              
-              function togglePlayIcon() {
-                  iconPlay.style.display = video.paused ? 'block' : 'none';
-                  iconPause.style.display = video.paused ? 'none' : 'block';
-              }
-            </script>
           </div>
         </div>
       </div>
@@ -71,5 +47,6 @@
         <h5>Site by &#32;<a class="link-filled">EY</a></h5>
       </div>
     </div>
+    <script src="js/video-player.js"></script>
   </body>
 </html>
