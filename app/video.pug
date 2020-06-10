@@ -26,27 +26,5 @@ block content
             button.player__controls--button(accesskey='p')
                 img.player__controls--button-play(src='assets/icons/play.svg' alt='Play')/
                 img.player__controls--button-pause(src='assets/icons/pause.svg' alt='Pause')/
-
-        script.
-            let player = document.querySelector('.player');
-            let video = player.querySelector('.player__video');
-            let btnPlayPause = player.querySelector('.player__controls--button');
-            let iconPlay = player.querySelector('.player__controls--button-play');
-            let iconPause = player.querySelector('.player__controls--button-pause');
-
-            iconPause.style.display = 'none';
-
-            btnPlayPause.addEventListener('click', togglePlay);
-            video.addEventListener('ended', togglePlayIcon);
-            video.addEventListener('play', togglePlayIcon);
-            video.addEventListener('pause', togglePlayIcon);
-
-            function togglePlay() {
-                const playState = video.paused ? 'play' : 'pause';
-                video[playState]();
-            }
-
-            function togglePlayIcon() {
-                iconPlay.style.display = video.paused ? 'block' : 'none';
-                iconPause.style.display = video.paused ? 'none' : 'block';
-            }
+block scripts
+    script(src='js/video-player.js')

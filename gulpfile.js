@@ -28,6 +28,11 @@ function styles() {
         .pipe(browserSync.stream());
 }
 
+function scripts() {
+    return src('app/js/*.js')
+        .pipe(dest('dist/js'));
+}
+
 function processAssets() {
     return src(['app/assets/**', '!app/assets/src/**'])
         .pipe(dest('dist/assets'));
@@ -42,7 +47,7 @@ function validateHtml() {
 exports.clean = clean;
 exports.processAssets = processAssets;
 exports.validate = validateHtml;
-exports.build = series(clean, parallel(styles, pugToHtml, processAssets, validateHtml));
+exports.build = series(clean, parallel(styles, pugToHtml, scripts, processAssets, validateHtml));
 exports.watch = function() {
     browserSync.init({
         server: {
@@ -51,5 +56,6 @@ exports.watch = function() {
     })
     watch('app/scss/*.scss', {ignoreInitial: false}, styles);
     watch(['app/*.pug', '!app/_*.pug'], {ignoreInitial: false}, pugToHtml).on('change', browserSync.reload);
+    watch('app/js/*.js', {ignoreInitial: false}, scripts).on('change', browserSync.reload);
     watch(['app/assets', '!app/assets/src'], {ignoreInitial: false}, processAssets).on('change', browserSync.reload);
 }
