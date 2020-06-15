@@ -216,9 +216,11 @@ form {
       margin-left: 5px; } }
 
 .g-fieldset {
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  /* Flexbox/grid layout model does not work on fieldset elements (Issue 375693)
+        => https://bugs.chromium.org/p/chromium/issues/detail?id=375693
+     display: flex;
+     align-items: center;
+     justify-content: center; */
   margin-top: 10px;
   padding: 0;
   border: none; }
@@ -229,34 +231,47 @@ form {
   padding: 5px 10px;
   border: 1px solid #f3f3f4;
   border-radius: 5px; }
+  .g-fieldset--frame > * {
+    /* Issue 375693 - Fix */
+    margin-left: auto;
+    margin-right: auto;
+    /* End */ }
 
-fieldset[name='radio'] input[type='radio'] {
-  margin: 0;
-  width: 12px;
-  height: 12px;
-  visibility: hidden; }
-
-fieldset[name='radio'] label {
-  padding: 5px 16px 5px 0;
-  background-color: #d3d3d3;
-  font-size: 15px;
-  color: #818388;
-  -webkit-user-select: none;
-     -moz-user-select: none;
-      -ms-user-select: none;
-          user-select: none;
-  cursor: pointer; }
-  fieldset[name='radio'] label:hover {
-    background-color: #dbdbdb; }
-  fieldset[name='radio'] label:first-child {
-    border-top-left-radius: 3px;
-    border-bottom-left-radius: 3px; }
-  fieldset[name='radio'] label:last-child {
-    border-top-right-radius: 3px;
-    border-bottom-right-radius: 3px; }
-  fieldset[name='radio'] label.checked {
-    background-color: #4794ff;
-    color: white; }
+fieldset[name='radio'] {
+  /* Issue 375693 - Fix */
+  margin-left: auto;
+  margin-right: auto;
+  /* End */ }
+  fieldset[name='radio'] input[type='radio'] {
+    margin: 0;
+    width: 12px;
+    height: 12px;
+    visibility: hidden; }
+  fieldset[name='radio'] label {
+    /* Issue 375693 - Fix */
+    display: inline-block;
+    float: left;
+    /* End */
+    padding: 5px 16px 5px 0;
+    background-color: #d3d3d3;
+    font-size: 15px;
+    color: #818388;
+    -webkit-user-select: none;
+       -moz-user-select: none;
+        -ms-user-select: none;
+            user-select: none;
+    cursor: pointer; }
+    fieldset[name='radio'] label:hover {
+      background-color: #dbdbdb; }
+    fieldset[name='radio'] label:first-child {
+      border-top-left-radius: 3px;
+      border-bottom-left-radius: 3px; }
+    fieldset[name='radio'] label:last-child {
+      border-top-right-radius: 3px;
+      border-bottom-right-radius: 3px; }
+    fieldset[name='radio'] label.checked {
+      background-color: #4794ff;
+      color: white; }
 
 .g-input {
   display: inline-flex;
