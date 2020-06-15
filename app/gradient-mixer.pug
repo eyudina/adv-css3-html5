@@ -9,34 +9,7 @@ prepend sidebar
 block content
     h2 Gradient Mixer
     p Create a two-color gradient background for your website!
-    form(name='gradient-mixer-form')
-        .gradient-mixer.container
-            .g-output.box
-                span.g-output__button--copy Copy
-                span.g-output__text--value 135&deg;
-            .g-controls
-                div
-                    .g-controls__group.g-color-picker
-                        label(for='first_color') #1
-                        input(type='color' id='first_color' name='color' data-color-picker='true' value='#FCCF31')
-                    .g-controls__group.g-color-picker
-                        label(for='second_color') #2
-                        input(type='color' id='second_color' name='color' data-color-picker='true' value='#F55555')
-                .g-controls__group.g-show-hide
-                    div
-                        span.g-input__label Set angle to
-                        .g-input
-                            button.g-input__button.g-input__button--left(data-type-left='true') &#8678;
-                            button.g-input__button.g-input__button--right(data-type-right='true') &#8680;
-                            input.g-input__number-field(type='number' min='0' max='360' value='135')
-                        span.g-input__label &#32;degree(s)
-                    input.g-slider(type='range' min='0' max='360' value='135')
-            .g-radio__container
-                .g-radio
-                    input(type='radio' id='g-linear' name='gradient-type' data-radio='true' value='linear-gradient' checked)
-                    label(for='g-linear') Linear
-                .g-radio
-                    input(type='radio' id='g-radial' name='gradient-type' data-radio='true' value='radial-gradient')
-                    label(for='g-radial') Radial
+    .gradient-mixer.container
+
 block scripts
     script(src='js/gradient-mixer.js')
