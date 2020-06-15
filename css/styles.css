@@ -369,7 +369,8 @@ fieldset[name='radio'] {
 
 .g-slider {
   -webkit-appearance: none;
-  margin: 18px 0;
+  margin-top: 18px;
+  margin-bottom: 18px;
   width: 100%;
   max-width: 270px;
   height: 5px;
