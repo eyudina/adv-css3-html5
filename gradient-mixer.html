@@ -23,43 +23,7 @@
         <div id="content">
           <h2>Gradient Mixer</h2>
           <p>Create a two-color gradient background for your website!</p>
-          <form name="gradient-mixer-form">
-            <div class="gradient-mixer container">
-              <div class="g-output box"><span class="g-output__button--copy">Copy</span><span class="g-output__text--value">135&deg;</span></div>
-              <div class="g-controls">
-                <div>
-                  <div class="g-controls__group g-color-picker">
-                    <label for="first_color">#1</label>
-                    <input type="color" id="first_color" name="color" data-color-picker="true" value="#FCCF31">
-                  </div>
-                  <div class="g-controls__group g-color-picker">
-                    <label for="second_color">#2</label>
-                    <input type="color" id="second_color" name="color" data-color-picker="true" value="#F55555">
-                  </div>
-                </div>
-                <div class="g-controls__group g-show-hide">
-                  <div><span class="g-input__label">Set angle to</span>
-                    <div class="g-input">
-                      <button class="g-input__button g-input__button--left" data-type-left="true">&#8678;</button>
-                      <button class="g-input__button g-input__button--right" data-type-right="true">&#8680;</button>
-                      <input class="g-input__number-field" type="number" min="0" max="360" value="135">
-                    </div><span class="g-input__label">&#32;degree(s)</span>
-                  </div>
-                  <input class="g-slider" type="range" min="0" max="360" value="135">
-                </div>
-              </div>
-              <div class="g-radio__container">
-                <div class="g-radio">
-                  <input type="radio" id="g-linear" name="gradient-type" data-radio="true" value="linear-gradient" checked>
-                  <label for="g-linear">Linear</label>
-                </div>
-                <div class="g-radio">
-                  <input type="radio" id="g-radial" name="gradient-type" data-radio="true" value="radial-gradient">
-                  <label for="g-radial">Radial</label>
-                </div>
-              </div>
-            </div>
-          </form>
+          <div class="gradient-mixer container"></div>
         </div>
       </div>
       <div class="container" id="footer">
