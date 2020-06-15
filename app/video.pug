@@ -3,16 +3,17 @@ extends _layout.pug
 block page-title
     title Video | HTML5 & CSS3
 
-prepend sidebar
+prepend navigation
     -var page = 'video';
 
-block content
+block content-header
     h2 Veiled Chameleon &#129422;
+block content
     p
         | One of the characteristics of the veiled chameleon is its changing color.
         | The changing color has less to do with its surroundings but is influenced by its emotions.
         | For example, gravid chameleons are dark green with blue and yellow spots.
-    .container.player(data-video-url='assets/video/chameleon.mp4', data-poster='assets/video/posters/chameleon.png')
+    .player(data-video-url='assets/video/chameleon.mp4', data-poster='assets/video/posters/chameleon.png', data-width="480")
 
 block scripts
     script(src='js/video-player.js')

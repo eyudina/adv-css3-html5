@@ -3,13 +3,14 @@ extends _layout
 block page-title
     title 'Gradient Mixer | HTML5 & CSS3'
 
-prepend sidebar
+prepend navigation
     -var page = 'gradient-mixer'
 
-block content
+block content-header
     h2 Gradient Mixer
+block content
     p Create a two-color gradient background for your website!
-    .gradient-mixer.container
+    .gradient-mixer
 
 block scripts
     script(src='js/gradient-mixer.js')

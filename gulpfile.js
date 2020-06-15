@@ -55,7 +55,7 @@ exports.watch = function() {
         }
     })
     watch('app/scss/*.scss', {ignoreInitial: false}, styles);
-    watch(['app/*.pug', '!app/_*.pug'], {ignoreInitial: false}, pugToHtml).on('change', browserSync.reload);
+    watch('app/*.pug', {ignoreInitial: false}, pugToHtml).on('change', browserSync.reload);
     watch('app/js/*.js', {ignoreInitial: false}, scripts).on('change', browserSync.reload);
     watch(['app/assets', '!app/assets/src'], {ignoreInitial: false}, processAssets).on('change', browserSync.reload);
 }

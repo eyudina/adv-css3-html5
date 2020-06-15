@@ -3,13 +3,14 @@ extends _layout.pug
 block page-title
     title Home | Advanced HTML5 & CSS3
 
-prepend sidebar
+prepend navigation
     -var page = 'index';
 
-block content
+block content-header
     h2 Right Column Heading Here
+block content
     p Right column content here
-    .container
+    .box__container
         - var gradientColors = ['--soft-purple', '--orange-ice-cream', '--blue-sea', '--juicy-lime', '--summer-sunset', '--underwater'];
         each color in gradientColors
             div(class='box gradient-background' + color): p Box content

@@ -4,27 +4,31 @@ html(lang="en")
     block page-title
       title Advanced HTML5 & CSS3
     meta(charset='UTF-8')/
+    meta(name='viewport' content='width=device-width, initial-scale=1')
     link(rel='stylesheet' href='css/styles.css')/
   body
     #wrapper
-      .container#header
+      header.page__header
         block header
           h1 Website for &#32;
             a.link-filled(href='https://education.gale.com/l-sfpl/online-courses/advanced-css3-html5') Advanced CSS3 and HTML5 class
-      .container
-        #sidebar
-          block sidebar
+      nav
+        header
+          block navigation-header
             h3 Links
-            ul.nav
-              li: a(class=(page === 'index' ? 'active' : undefined) href='index.html') Home
-              li: a(href='http://www.w3schools.com/') Reference: W3Schools
-              li: a(class=(page === 'gradient-mixer' ? 'active' : undefined) href='gradient-mixer.html') Form: Gradient Mixer
-              li: a(class=(page === 'video' ? 'active' : undefined) href='video.html') Video
-        #content
-          block content
-            h2 Right Column Heading Here
-            p Right column content here
-      .container#footer
+        ul.nav
+          block navigation
+            li: a(class=(page === 'index' ? 'active' : undefined) href='index.html') Home
+            li: a(href='http://www.w3schools.com/') Reference: W3Schools
+            li: a(class=(page === 'gradient-mixer' ? 'active' : undefined) href='gradient-mixer.html') Form: Gradient Mixer
+            li: a(class=(page === 'video' ? 'active' : undefined) href='video.html') Video
+      article
+        header
+          block content-header
+              h2 Right Column Heading Here
+        block content
+          p Right column content here
+      footer.page__footer
         block footer
           h5 Site by &#32;
             a.link-filled EY

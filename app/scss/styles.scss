@@ -54,16 +54,110 @@ body {
   color: $text-color;
 }
 
-#{headings(1,6)} {
-  font-family: $font-family-heading;
-  font-weight: 400;
-  & + p {
-    margin-top: 0;
+#wrapper {
+  @media only screen and (min-width: 960px) {
+    width: 960px;
+  }
+  display: flex;
+  flex-flow: row wrap;
+  margin: 20px auto;
+  background-color: white;
+}
+
+header, nav, article, footer {
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+header {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+footer {
+  display: flex;
+  align-items: center;
+}
+
+header.page__header {
+  width: 100%;
+  min-height: 120px;
+  box-shadow: inset 0 -1px 0 #f3f3f4;
+}
+
+footer.page__footer {
+  width: 100%;
+  height: 80px;
+  box-shadow: inset 0 1px 0 #f3f3f4;
+}
+
+nav {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 270px;
+
+  header {
+    align-self: flex-start;
+    margin: 20px 0;
+    padding: 10px 15px;
+    background-color: $secondary-color;
+    font-weight: 500;
+    color: white;
+    & > * {
+      margin: 0;
+    }
   }
 }
 
-#{headings(1,6)}, p, li {
+ul.nav {
+  margin-top: 0;
+  padding-left: 15px;
+  list-style: none;
+  li {
+    padding: 10px 5px;
+    &:hover {
+      cursor: pointer;
+      a {
+        color: $primary-color;
+      }
+    }
+  }
+}
+
+article {
+  display: flex;
+  flex-direction: column;
+  flex: 2 1 500px;
+  min-height: 620px;
+  box-shadow: inset 1px 0 0 #f3f3f4;
+
+  header {
+    padding: 0;
+    color: $secondary-color;
+    font-weight: 500;
+    & + p {
+      margin-top: 0;
+    }
+  }
+
+  p {
+    max-width: 480px;
+    margin: 15px 0 15px 15px;
+    &:not(:first-of-type) {
+      margin-top: 0;
+    }
+  }
+}
+
+#{headings(1,6)} {
   margin-left: 15px;
+  font-family: $font-family-heading;
+  font-weight: 400;
+
+  & + p {
+    margin-top: 0;
+  }
 }
 
 a {
@@ -79,95 +173,17 @@ a {
   &.link-filled {
     color: $primary-color;
     border-bottom: 1px dashed $primary-color;
+    transition: background-color 0.3s ease-out;
     &:hover {
       background-color: $primary-color;
       color: white;
     }
-    &, &:hover {
-      transition: background-color 0.3s ease-out;
-    }
   }
 }
 
-ul.nav {
-  margin-top: 0;
-  padding-left: 0;
-  list-style: none;
-  li {
-    padding: 10px 5px;
-    &:hover {
-      cursor: pointer;
-      a {
-        color: $primary-color;
-      }
-    }
-  }
-}
-
-.container {
+.box__container {
   display: flex;
-  flex-wrap: wrap;
-}
-
-#wrapper {
-  width: 960px;
-  margin: 20px auto;
-  background-color: white;
-}
-
-#header, #sidebar, #content, #footer {
-  padding-left: 20px;
-  padding-right: 60px;
-}
-
-#header {
-  display: flex;
-  align-items: center;
-  height: 120px;
-  box-shadow: inset 0 -1px 0 #f3f3f4;
-}
-
-#footer {
-  display: flex;
-  align-items: center;
-  height: 80px;
-  box-shadow: inset 0 1px 0 #f3f3f4;
-}
-
-#content {
-  display: flex;
-  flex-direction: column;
-  flex: 4 1 500px;
-  min-height: 620px;
-  box-shadow: inset 1px 0 0 #f3f3f4;
-
-  #{headings(1,6)} {
-    color: $secondary-color;
-    font-weight: 500;
-  }
-
-  .container {
-    margin-left: 15px;
-  }
-
-  & > p {
-    max-width: 480px;
-  }
-}
-
-#sidebar {
-  display: flex;
-  flex-direction: column;
-  flex: 1 1 280px;
-
-  #{headings(1,6)} {
-    align-self: flex-start;
-    margin: 20px 0;
-    padding: 10px 15px;
-    background-color: $secondary-color;
-    font-weight: 500;
-    color: white;
-  }
+  flex-flow: row wrap;
 }
 
 .box {
@@ -182,9 +198,7 @@ ul.nav {
   border-radius: 3px;
   box-shadow: 0 0 20px  0 rgba(0, 0, 0, 0.08),
               0 6px 8px 0 rgba(0, 0, 0, 0.05);
-  &, &:hover {
-    transition: transform 0.3s ease-in-out;
-  }
+  transition: transform 0.3s ease-in-out;
 
   &:hover {
     cursor: pointer;
@@ -208,11 +222,10 @@ ul.nav {
 .player {
   display: flex;
   flex-direction: column;
-  width: 480px;
+  align-self: flex-start;
 
   .player__video {
-    width: inherit;
-    height: 270px;
+    margin: 15px;
     border-radius: 3px;
     box-shadow: 0 0  20px  0 rgba(0, 0, 0, 0.08),
                 0 6px 8px  0 rgba(0, 0, 0, 0.05);
@@ -220,14 +233,14 @@ ul.nav {
 
   .player__controls {
     display: flex;
-    justify-content: center;
     flex-wrap: wrap;
-    margin-top: 10px;
+    justify-content: center;
+    margin: 5px 15px;
   }
 
   .player__controls--button {
     position: relative;
-    margin: 3px;
+    margin: 5px;
     padding: 0;
     width: 60px;
     height: 60px;
@@ -236,9 +249,10 @@ ul.nav {
     border-radius: 50%;
     box-shadow: 0 0  20px  0 rgba(0, 0, 0, 0.08),
                 0 6px 8px  0 rgba(0, 0, 0, 0.05);
+    transition: transform 0.2s ease-in;
+
     &:active {
       transform: scale(.9);
-      transition: transform 0.2s ease-in;
     }
 
     &:hover {
@@ -420,10 +434,7 @@ fieldset[name='radio'] {
   color: white;
   cursor: pointer;
   opacity: .7;
-
-  &, &:hover {
-    transition: opacity 0.2s ease-in;
-  }
+  transition: opacity 0.2s ease-in;
 
   &:hover {
     opacity: 1;
@@ -460,12 +471,10 @@ fieldset[name='radio'] {
   border-radius: 3px;
   box-shadow: 0 0 20px  0 rgba(0, 0, 0, 0.08),
               0 6px 8px 0 rgba(0, 0, 0, 0.05);
+  transition: transform 0.3s ease-in-out;
+
   & + * {
     margin-top: 0;
-  }
-
-  &, &:hover {
-    transition: transform 0.3s ease-in-out;
   }
 
   &:hover {
@@ -490,7 +499,6 @@ fieldset[name='radio'] {
 
   &:hover .g-output__button {
     opacity: .9;
-    transition: opacity 0.3s ease-in;
   }
 
   .g-output__text {
