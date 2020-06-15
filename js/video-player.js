@@ -3,6 +3,7 @@ class VideoPlayer {
         this._container = container
         this._videoUrl = this._container.getAttribute('data-video-url')
         this._poster = this._container.getAttribute('data-poster')
+        this._dataWidth = this._container.getAttribute('data-width')
         this._initialize()
     }
 
@@ -14,7 +15,7 @@ class VideoPlayer {
 
     _initializeContent() {
         this._container.innerHTML = `
-            <video class="player__video" controls poster="${this._poster}">
+            <video class="player__video" width="${this._dataWidth}" controls poster="${this._poster}">
               <source src="${this._videoUrl}">
               <div class="message">
                 <p class="message__heading">Your browser doesn't support the video tag.</p>

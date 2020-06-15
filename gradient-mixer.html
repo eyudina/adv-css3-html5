@@ -3,32 +3,35 @@
   <head>
     <title>'Gradient Mixer | HTML5 & CSS3'</title>
     <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="css/styles.css"/>
   </head>
   <body>
     <div id="wrapper">
-      <div class="container" id="header">
+      <header class="page__header">
         <h1>Website for &#32;<a class="link-filled" href="https://education.gale.com/l-sfpl/online-courses/advanced-css3-html5">Advanced CSS3 and HTML5 class</a></h1>
-      </div>
-      <div class="container">
-        <div id="sidebar">
+      </header>
+      <nav>
+        <header>
           <h3>Links</h3>
-          <ul class="nav">
-            <li><a href="index.html">Home</a></li>
-            <li><a href="http://www.w3schools.com/">Reference: W3Schools</a></li>
-            <li><a class="active" href="gradient-mixer.html">Form: Gradient Mixer</a></li>
-            <li><a href="video.html">Video</a></li>
-          </ul>
-        </div>
-        <div id="content">
+        </header>
+        <ul class="nav">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="http://www.w3schools.com/">Reference: W3Schools</a></li>
+          <li><a class="active" href="gradient-mixer.html">Form: Gradient Mixer</a></li>
+          <li><a href="video.html">Video</a></li>
+        </ul>
+      </nav>
+      <article>
+        <header>
           <h2>Gradient Mixer</h2>
-          <p>Create a two-color gradient background for your website!</p>
-          <div class="gradient-mixer container"></div>
-        </div>
-      </div>
-      <div class="container" id="footer">
+        </header>
+        <p>Create a two-color gradient background for your website!</p>
+        <div class="gradient-mixer"></div>
+      </article>
+      <footer class="page__footer">
         <h5>Site by &#32;<a class="link-filled">EY</a></h5>
-      </div>
+      </footer>
     </div>
     <script src="js/gradient-mixer.js"></script>
   </body>

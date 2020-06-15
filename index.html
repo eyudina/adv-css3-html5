@@ -3,51 +3,54 @@
   <head>
     <title>Home | Advanced HTML5 & CSS3</title>
     <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="css/styles.css"/>
   </head>
   <body>
     <div id="wrapper">
-      <div class="container" id="header">
+      <header class="page__header">
         <h1>Website for &#32;<a class="link-filled" href="https://education.gale.com/l-sfpl/online-courses/advanced-css3-html5">Advanced CSS3 and HTML5 class</a></h1>
-      </div>
-      <div class="container">
-        <div id="sidebar">
+      </header>
+      <nav>
+        <header>
           <h3>Links</h3>
-          <ul class="nav">
-            <li><a class="active" href="index.html">Home</a></li>
-            <li><a href="http://www.w3schools.com/">Reference: W3Schools</a></li>
-            <li><a href="gradient-mixer.html">Form: Gradient Mixer</a></li>
-            <li><a href="video.html">Video</a></li>
-          </ul>
-        </div>
-        <div id="content">
+        </header>
+        <ul class="nav">
+          <li><a class="active" href="index.html">Home</a></li>
+          <li><a href="http://www.w3schools.com/">Reference: W3Schools</a></li>
+          <li><a href="gradient-mixer.html">Form: Gradient Mixer</a></li>
+          <li><a href="video.html">Video</a></li>
+        </ul>
+      </nav>
+      <article>
+        <header>
           <h2>Right Column Heading Here</h2>
-          <p>Right column content here</p>
-          <div class="container">
-            <div class="box gradient-background--soft-purple">
-              <p>Box content</p>
-            </div>
-            <div class="box gradient-background--orange-ice-cream">
-              <p>Box content</p>
-            </div>
-            <div class="box gradient-background--blue-sea">
-              <p>Box content</p>
-            </div>
-            <div class="box gradient-background--juicy-lime">
-              <p>Box content</p>
-            </div>
-            <div class="box gradient-background--summer-sunset">
-              <p>Box content</p>
-            </div>
-            <div class="box gradient-background--underwater">
-              <p>Box content</p>
-            </div>
+        </header>
+        <p>Right column content here</p>
+        <div class="box__container">
+          <div class="box gradient-background--soft-purple">
+            <p>Box content</p>
+          </div>
+          <div class="box gradient-background--orange-ice-cream">
+            <p>Box content</p>
+          </div>
+          <div class="box gradient-background--blue-sea">
+            <p>Box content</p>
+          </div>
+          <div class="box gradient-background--juicy-lime">
+            <p>Box content</p>
+          </div>
+          <div class="box gradient-background--summer-sunset">
+            <p>Box content</p>
+          </div>
+          <div class="box gradient-background--underwater">
+            <p>Box content</p>
           </div>
         </div>
-      </div>
-      <div class="container" id="footer">
+      </article>
+      <footer class="page__footer">
         <h5>Site by &#32;<a class="link-filled">EY</a></h5>
-      </div>
+      </footer>
     </div>
   </body>
 </html>

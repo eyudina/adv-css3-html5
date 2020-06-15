@@ -3,36 +3,39 @@
   <head>
     <title>Video | HTML5 & CSS3</title>
     <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="css/styles.css"/>
   </head>
   <body>
     <div id="wrapper">
-      <div class="container" id="header">
+      <header class="page__header">
         <h1>Website for &#32;<a class="link-filled" href="https://education.gale.com/l-sfpl/online-courses/advanced-css3-html5">Advanced CSS3 and HTML5 class</a></h1>
-      </div>
-      <div class="container">
-        <div id="sidebar">
+      </header>
+      <nav>
+        <header>
           <h3>Links</h3>
-          <ul class="nav">
-            <li><a href="index.html">Home</a></li>
-            <li><a href="http://www.w3schools.com/">Reference: W3Schools</a></li>
-            <li><a href="gradient-mixer.html">Form: Gradient Mixer</a></li>
-            <li><a class="active" href="video.html">Video</a></li>
-          </ul>
-        </div>
-        <div id="content">
+        </header>
+        <ul class="nav">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="http://www.w3schools.com/">Reference: W3Schools</a></li>
+          <li><a href="gradient-mixer.html">Form: Gradient Mixer</a></li>
+          <li><a class="active" href="video.html">Video</a></li>
+        </ul>
+      </nav>
+      <article>
+        <header>
           <h2>Veiled Chameleon &#129422;</h2>
-          <p>
-            One of the characteristics of the veiled chameleon is its changing color.
-            The changing color has less to do with its surroundings but is influenced by its emotions.
-            For example, gravid chameleons are dark green with blue and yellow spots.
-          </p>
-          <div class="container player" data-video-url="assets/video/chameleon.mp4" data-poster="assets/video/posters/chameleon.png"></div>
-        </div>
-      </div>
-      <div class="container" id="footer">
+        </header>
+        <p>
+          One of the characteristics of the veiled chameleon is its changing color.
+          The changing color has less to do with its surroundings but is influenced by its emotions.
+          For example, gravid chameleons are dark green with blue and yellow spots.
+        </p>
+        <div class="player" data-video-url="assets/video/chameleon.mp4" data-poster="assets/video/posters/chameleon.png" data-width="480"></div>
+      </article>
+      <footer class="page__footer">
         <h5>Site by &#32;<a class="link-filled">EY</a></h5>
-      </div>
+      </footer>
     </div>
     <script src="js/video-player.js"></script>
   </body>
