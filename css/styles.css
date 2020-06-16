@@ -26,6 +26,13 @@ body {
   font-family: "Open Sans", system-ui, -apple-system, sans-serif;
   color: #58586e; }
 
+h1, h2, h3, h4, h5, h6 {
+  margin-left: 15px;
+  font-family: "Quicksand", system-ui, -apple-system, sans-serif;
+  font-weight: 400; }
+  h1 + p, h2 + p, h3 + p, h4 + p, h5 + p, h6 + p {
+    margin-top: 0; }
+
 #wrapper {
   display: flex;
   flex-flow: row wrap;
@@ -100,13 +107,6 @@ article {
     margin: 15px 0 15px 15px; }
     article p:not(:first-of-type) {
       margin-top: 0; }
-
-h1, h2, h3, h4, h5, h6 {
-  margin-left: 15px;
-  font-family: "Quicksand", system-ui, -apple-system, sans-serif;
-  font-weight: 400; }
-  h1 + p, h2 + p, h3 + p, h4 + p, h5 + p, h6 + p {
-    margin-top: 0; }
 
 a {
   color: #58586e;
@@ -239,51 +239,49 @@ form {
   .g-fieldset:first-child {
     margin-top: 15px; }
 
+/* Issue 375693 - Fix */
+/* Add inner container for the fieldset and apply flex properties to it */
+.g-fieldset--inner {
+  display: flex;
+  align-items: center;
+  justify-content: center; }
+
+.g-fieldset--frame .g-fieldset--inner {
+  flex-direction: column; }
+
+/* End */
 .g-fieldset--frame {
   padding: 5px 10px;
   border: 1px solid #f3f3f4;
   border-radius: 5px; }
-  .g-fieldset--frame > * {
-    /* Issue 375693 - Fix */
-    margin-left: auto;
-    margin-right: auto;
-    /* End */ }
 
-fieldset[name='radio'] {
-  /* Issue 375693 - Fix */
-  margin-left: auto;
-  margin-right: auto;
-  /* End */ }
-  fieldset[name='radio'] input[type='radio'] {
-    margin: 0;
-    width: 12px;
-    height: 12px;
-    visibility: hidden; }
-  fieldset[name='radio'] label {
-    /* Issue 375693 - Fix */
-    display: inline-block;
-    float: left;
-    /* End */
-    padding: 5px 16px 5px 0;
-    background-color: #d3d3d3;
-    font-size: 15px;
-    color: #818388;
-    -webkit-user-select: none;
-       -moz-user-select: none;
-        -ms-user-select: none;
-            user-select: none;
-    cursor: pointer; }
-    fieldset[name='radio'] label:hover {
-      background-color: #dbdbdb; }
-    fieldset[name='radio'] label:first-child {
-      border-top-left-radius: 3px;
-      border-bottom-left-radius: 3px; }
-    fieldset[name='radio'] label:last-child {
-      border-top-right-radius: 3px;
-      border-bottom-right-radius: 3px; }
-    fieldset[name='radio'] label.checked {
-      background-color: #4794ff;
-      color: white; }
+fieldset[name='radio'] input[type='radio'] {
+  margin: 0;
+  width: 12px;
+  height: 12px;
+  visibility: hidden; }
+
+fieldset[name='radio'] label {
+  padding: 5px 16px 5px 0;
+  background-color: #d3d3d3;
+  font-size: 15px;
+  color: #818388;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  cursor: pointer; }
+  fieldset[name='radio'] label:hover {
+    background-color: #dbdbdb; }
+  fieldset[name='radio'] label:first-child {
+    border-top-left-radius: 3px;
+    border-bottom-left-radius: 3px; }
+  fieldset[name='radio'] label:last-child {
+    border-top-right-radius: 3px;
+    border-bottom-right-radius: 3px; }
+  fieldset[name='radio'] label.checked {
+    background-color: #4794ff;
+    color: white; }
 
 .g-input {
   display: inline-flex;

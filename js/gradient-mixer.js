@@ -20,34 +20,40 @@ class GradientMixer {
                 <span class="g-output__text"></span>
               </div>
               <fieldset name="radio" class="g-fieldset">
+                <div class="g-fieldset--inner">
                   <label class="checked">
                     <input type="radio" name="gradient-type" data-radio="true" value="linear-gradient" checked /> Linear
                   </label>
                   <label>
                     <input type="radio" name="gradient-type" data-radio="true" value="radial-gradient" /> Radial
                   </label>
+                </div>
               </fieldset>
             </div>
             <div class="col">
                 <fieldset name="color-picker" class="g-fieldset">
-                  <div class="g-color-picker">
-                    <label for="first_color">#1</label>
-                    <input type="color" id="first_color" name="color" data-color-picker="true" value="#FCCF31">
-                  </div>
-                  <div class="g-color-picker">
-                    <label for="second_color">#2</label>
-                    <input type="color" id="second_color" name="color" data-color-picker="true" value="#F55555">
+                  <div class="g-fieldset--inner">
+                      <div class="g-color-picker">
+                        <label for="first_color">#1</label>
+                        <input type="color" id="first_color" name="color" data-color-picker="true" value="#FCCF31">
+                      </div>
+                      <div class="g-color-picker">
+                        <label for="second_color">#2</label>
+                        <input type="color" id="second_color" name="color" data-color-picker="true" value="#F55555">
+                      </div>
                   </div>
                 </fieldset>
                 <fieldset name="range" class="g-fieldset g-fieldset--frame g-show-hide col">
-                  <div><span class="g-input__label">Set angle to</span>
-                    <div class="g-input">
-                      <button class="g-input__button g-input__button-left" data-type-left="true">&#8678;</button>
-                      <button class="g-input__button g-input__button-right" data-type-right="true">&#8680;</button>
-                      <input class="g-input__input" type="number" min="0" max="360" value="135">
-                    </div><span class="g-input__label">&#32;degree(s)</span>
+                  <div class="g-fieldset--inner">
+                      <div><span class="g-input__label">Set angle to</span>
+                        <div class="g-input">
+                          <button class="g-input__button g-input__button-left" data-type-left="true">&#8678;</button>
+                          <button class="g-input__button g-input__button-right" data-type-right="true">&#8680;</button>
+                          <input class="g-input__input" type="number" min="0" max="360" value="135">
+                        </div><span class="g-input__label">&#32;degree(s)</span>
+                      </div>
+                      <input class="g-slider" type="range" min="0" max="360" value="135">
                   </div>
-                  <input class="g-slider" type="range" min="0" max="360" value="135">
                 </fieldset>
               </div>
           </form>
