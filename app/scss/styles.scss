@@ -54,6 +54,17 @@ body {
   color: $text-color;
 }
 
+#{headings(1,6)} {
+  margin-left: 15px;
+  font-family: $font-family-heading;
+  font-weight: 400;
+
+  & + p {
+    margin-top: 0;
+  }
+}
+
+
 #wrapper {
   @media only screen and (min-width: 960px) {
     width: 960px;
@@ -147,16 +158,6 @@ article {
     &:not(:first-of-type) {
       margin-top: 0;
     }
-  }
-}
-
-#{headings(1,6)} {
-  margin-left: 15px;
-  font-family: $font-family-heading;
-  font-weight: 400;
-
-  & + p {
-    margin-top: 0;
   }
 }
 
@@ -333,23 +334,26 @@ form {
   }
 }
 
+/* Issue 375693 - Fix */
+/* Add inner container for the fieldset and apply flex properties to it */
+  .g-fieldset--inner {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .g-fieldset--frame .g-fieldset--inner {
+    flex-direction: column;
+  }
+/* End */
+
 .g-fieldset--frame {
   padding: 5px 10px;
   border: 1px solid #f3f3f4;
   border-radius: 5px;
-  & > * {
-    /* Issue 375693 - Fix */
-    margin-left: auto;
-    margin-right: auto;
-    /* End */
-  }
 }
 
 fieldset[name='radio'] {
-  /* Issue 375693 - Fix */
-  margin-left: auto;
-  margin-right: auto;
-  /* End */
   input[type='radio'] {
     margin: 0;
     width: 12px;
@@ -358,10 +362,6 @@ fieldset[name='radio'] {
   }
 
   label {
-    /* Issue 375693 - Fix */
-    display: inline-block;
-    float: left;
-    /* End */
     padding: 5px 16px 5px 0;
     background-color: #d3d3d3;
     font-size: 15px;
