@@ -18,6 +18,7 @@ class GradientMixer {
               <div class="g-output">
                 <span class="g-output__button">Copy</span>
                 <span class="g-output__text"></span>
+                <span class="g-icon g-icon-copy"></span>
               </div>
               <fieldset name="radio" class="g-fieldset">
                 <div class="g-fieldset--inner">

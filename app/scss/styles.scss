@@ -24,6 +24,14 @@ $gradient-color-list: (
   background: linear-gradient(135deg, $colors);
 }
 
+$screen-sm-max: 550px;
+$screen-md-min: 768px;
+$screen-lg-min: 960px;
+
+@mixin sm { @media (max-width: #{$screen-sm-max}) {@content;} }
+@mixin md { @media (min-width: #{$screen-md-min}) {@content;} }
+@mixin lg { @media (min-width: #{$screen-lg-min}) {@content;} }
+
 .gradient-background {
   background: #e2e2e2;
   background: linear-gradient(135deg, #e2e2e2, #c2c2c2);
@@ -51,6 +59,7 @@ body {
   padding: 0;
   background-color: #f3f3f4;
   font-family: $font-family-content;
+  font-size: 1em;
   color: $text-color;
 }
 
@@ -63,7 +72,6 @@ body {
     margin-top: 0;
   }
 }
-
 
 #wrapper {
   @media only screen and (min-width: 960px) {
@@ -95,6 +103,12 @@ header.page__header {
   width: 100%;
   min-height: 120px;
   box-shadow: inset 0 -1px 0 #f3f3f4;
+
+  @include sm {
+    & > * {
+      font-size: 1.666em;
+    }
+  }
 }
 
 footer.page__footer {
@@ -107,15 +121,16 @@ nav {
   display: flex;
   flex-direction: column;
   flex: 1 1 270px;
+  box-shadow: inset -1px 0 0 #f3f3f4;
 
   header {
     align-self: flex-start;
     margin: 20px 0;
     padding: 10px 15px;
     background-color: $secondary-color;
-    font-weight: 500;
     color: white;
-    & > * {
+    #{headings(1,6)} {
+      font-weight: 500;
       margin: 0;
     }
   }
@@ -140,15 +155,19 @@ article {
   display: flex;
   flex-direction: column;
   flex: 2 1 500px;
-  min-height: 620px;
-  box-shadow: inset 1px 0 0 #f3f3f4;
+  margin-bottom: 20px;
+
+  @include lg() {
+    min-height: 600px;
+  }
 
   header {
     padding: 0;
     color: $secondary-color;
-    font-weight: 500;
-    & + p {
-      margin-top: 0;
+    & + p { margin-top: 0; }
+
+    #{headings(1,6)} {
+      font-weight: 500;
     }
   }
 
@@ -190,8 +209,8 @@ a {
 .box {
   position: relative;
   float: left;
-  height: 150px;
   width: 150px;
+  height: 150px;
   margin: 15px;
   background-color: #e2e2e2;
   font-weight: 500;
@@ -201,7 +220,13 @@ a {
               0 6px 8px 0 rgba(0, 0, 0, 0.05);
   transition: transform 0.3s ease-in-out;
 
-  &:hover {
+  @include sm() {
+    width: 100%;
+    height: 120px;
+  }
+
+  &:hover,
+  &:active {
     cursor: pointer;
     transform: scale(1.05, 1.05);
   }
@@ -230,6 +255,10 @@ a {
     border-radius: 3px;
     box-shadow: 0 0  20px  0 rgba(0, 0, 0, 0.08),
                 0 6px 8px  0 rgba(0, 0, 0, 0.05);
+
+    @include sm() {
+      width: calc(100% - 15px * 2);
+    }
   }
 
   .player__controls {
@@ -282,6 +311,11 @@ a {
 .flex-grid {
   display: flex;
   flex-wrap: wrap;
+
+  @include sm() {
+    flex-direction: column;
+    align-items: center;
+  }
 }
 
 .col {
@@ -295,9 +329,13 @@ form {
 
 .g-color-picker {
   display: inline-block;
-  padding: 5px 18px;
+  padding: 5px 20px;
   border: 1px solid #f3f3f4;
   border-radius: 5px;
+
+  @-moz-document url-prefix() {
+    padding: 5px 10px;
+  }
 
   &:not(:last-child) {
     margin-right: 5px;
@@ -354,6 +392,8 @@ form {
 }
 
 fieldset[name='radio'] {
+  margin-left: 15px;
+  margin-right: 15px;
   input[type='radio'] {
     margin: 0;
     width: 12px;
@@ -365,9 +405,15 @@ fieldset[name='radio'] {
     padding: 5px 16px 5px 0;
     background-color: #d3d3d3;
     font-size: 15px;
+    text-align: center;
     color: #818388;
     user-select: none;
     cursor: pointer;
+
+    @include sm() {
+      flex: 1;
+      justify-content: stretch;
+    }
 
     &:hover {
       background-color: lighten(#d3d3d3, 3%);
@@ -436,7 +482,8 @@ fieldset[name='radio'] {
   opacity: .7;
   transition: opacity 0.2s ease-in;
 
-  &:hover {
+  &:hover,
+  &:active {
     opacity: 1;
   }
 }
@@ -473,11 +520,16 @@ fieldset[name='radio'] {
               0 6px 8px 0 rgba(0, 0, 0, 0.05);
   transition: transform 0.3s ease-in-out;
 
+  @include sm() {
+    width: 300px;
+  }
+
   & + * {
     margin-top: 0;
   }
 
-  &:hover {
+  &:hover,
+  &:active {
     cursor: pointer;
     transform: scale(1.05, 1.05);
   }
@@ -495,9 +547,11 @@ fieldset[name='radio'] {
     text-align: center;
     opacity: 0;
     transition: opacity 0.3s ease-out;
+    user-select: none;
   }
 
-  &:hover .g-output__button {
+  &:hover .g-output__button,
+  &:active .g-output__button {
     opacity: .9;
   }
 
@@ -509,7 +563,29 @@ fieldset[name='radio'] {
     text-align: center;
     transform: translateY(-17px);
     font-size: 25px;
+    user-select: none;
   }
+
+  @media (hover: none) and (pointer: coarse) {
+    .g-icon {
+      position: absolute;
+      top: 0;
+      right: 0;
+      transform: translate(-5px, 5px);
+      opacity: .4;
+    }
+  }
+}
+
+.g-icon {
+  width: 20px;
+  height: 20px;
+}
+
+.g-icon-copy {
+  background-image: url('../assets/icons/copy.png');
+  background-repeat: no-repeat;
+  background-size: contain;
 }
 
 .g-slider {
@@ -524,7 +600,8 @@ fieldset[name='radio'] {
   opacity: 0.7;
   transition: opacity .2s;
 
-  &:hover {
+  &:hover,
+  &:active {
     opacity: 1;
   }
 
