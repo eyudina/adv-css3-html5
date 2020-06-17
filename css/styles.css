@@ -228,27 +228,18 @@ form {
   margin-bottom: 20px; }
 
 .g-color-picker {
-  display: inline-block;
-  padding: 5px 20px;
-  border: 1px solid #f3f3f4;
-  border-radius: 5px; }
-
-@-moz-document url-prefix() {
-  .g-color-picker {
-    padding: 5px 10px; } }
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 145px;
+  flex-grow: 1; }
   .g-color-picker:not(:last-child) {
-    margin-right: 5px; }
+    margin-right: 10px; }
   .g-color-picker label {
+    margin-right: 5px;
     font-size: 14px;
     text-transform: uppercase;
     color: #595959; }
-
-@-moz-document url-prefix() {
-  .g-color-picker {
-    display: inline-flex;
-    align-items: center; }
-    .g-color-picker label + * {
-      margin-left: 5px; } }
 
 .g-fieldset {
   /* Flexbox/grid layout model does not work on fieldset elements (Issue 375693)
@@ -288,6 +279,7 @@ fieldset[name='radio'] {
     visibility: hidden; }
   fieldset[name='radio'] label {
     padding: 5px 16px 5px 0;
+    min-width: 76px;
     background-color: #d3d3d3;
     font-size: 15px;
     text-align: center;
@@ -327,12 +319,16 @@ fieldset[name='radio'] {
     height: 30px;
     font-size: 14px;
     border: 1px solid #d3d3d3;
+    border-radius: 0;
     text-align: center;
     color: #58586e; }
     .g-input input + .g-input__button-left {
       border-left: none; }
     .g-input input + .g-input__button-right {
       border-right: none; }
+    @media (hover: none) and (pointer: coarse) {
+      .g-input input {
+        height: 33px; } }
 
 .g-input__label {
   font-size: 14px;
@@ -347,9 +343,20 @@ fieldset[name='radio'] {
   color: white;
   cursor: pointer;
   opacity: .7;
-  transition: opacity 0.2s ease-in; }
-  .g-input__button:hover, .g-input__button:active {
-    opacity: 1; }
+  transition: opacity 0.2s ease-in;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none; }
+  @media (hover: hover) {
+    .g-input__button:hover {
+      opacity: 1; } }
+  @media (hover: none) and (pointer: coarse) {
+    .g-input__button {
+      height: 33px;
+      width: 33px; }
+      .g-input__button:active {
+        opacity: 1; } }
 
 .g-input__button-left {
   border-top-left-radius: 3px;
@@ -378,19 +385,23 @@ fieldset[name='radio'] {
   @media (max-width: 550px) {
     .g-output {
       width: 300px; } }
+  @media (hover: none) and (pointer: coarse) {
+    .g-output:active {
+      transform: scale(1.05, 1.05);
+      transition: transform 0.1s ease-out; } }
   .g-output + * {
     margin-top: 0; }
-  .g-output:hover, .g-output:active {
-    cursor: pointer;
-    transform: scale(1.05, 1.05); }
+  @media (hover: hover) {
+    .g-output:hover {
+      transform: scale(1.05, 1.05);
+      cursor: pointer; } }
   .g-output .g-output__button {
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    padding: 5px 10px;
-    background-color: rgba(88, 88, 110, 0.1);
-    border: 1px solid white;
+    padding: 7px 13px;
+    background-color: rgba(0, 0, 0, 0.3);
     border-radius: 5px;
     font-size: 12px;
     text-align: center;
@@ -400,9 +411,15 @@ fieldset[name='radio'] {
        -moz-user-select: none;
         -ms-user-select: none;
             user-select: none; }
-  .g-output:hover .g-output__button,
-  .g-output:active .g-output__button {
-    opacity: .9; }
+  @media (hover: hover) {
+    .g-output:hover .g-output__button {
+      opacity: .9; } }
+  @media (hover: none) and (pointer: coarse) {
+    .g-output .g-output__button {
+      transition: opacity 0.3s ease-out 1s; }
+    .g-output:active .g-output__button {
+      opacity: .9;
+      transition: opacity 0.1s ease-out; } }
   .g-output .g-output__text {
     position: absolute;
     top: 50%;
@@ -421,7 +438,7 @@ fieldset[name='radio'] {
       top: 0;
       right: 0;
       transform: translate(-5px, 5px);
-      opacity: .4; } }
+      opacity: .3; } }
 
 .g-icon {
   width: 20px;
@@ -440,7 +457,6 @@ fieldset[name='radio'] {
   max-width: 270px;
   height: 5px;
   background: #d3d3d3;
-  outline: none;
   opacity: 0.7;
   transition: opacity .2s; }
   .g-slider:hover, .g-slider:active {
@@ -450,9 +466,14 @@ fieldset[name='radio'] {
     appearance: none;
     width: 20px;
     height: 20px;
+    border: 0;
     border-radius: 3px;
     background: #4794ff;
     cursor: pointer; }
+    @media (hover: none) and (pointer: coarse) {
+      .g-slider::-webkit-slider-thumb {
+        width: 25px;
+        height: 25px; } }
   .g-slider::-moz-range-thumb {
     width: 20px;
     height: 20px;

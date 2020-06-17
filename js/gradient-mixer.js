@@ -34,11 +34,11 @@ class GradientMixer {
             <div class="col">
                 <fieldset name="color-picker" class="g-fieldset">
                   <div class="g-fieldset--inner">
-                      <div class="g-color-picker">
+                      <div class="g-color-picker g-fieldset--frame">
                         <label for="first_color">#1</label>
                         <input type="color" id="first_color" name="color" data-color-picker="true" value="#FCCF31">
                       </div>
-                      <div class="g-color-picker">
+                      <div class="g-color-picker g-fieldset--frame">
                         <label for="second_color">#2</label>
                         <input type="color" id="second_color" name="color" data-color-picker="true" value="#F55555">
                       </div>
@@ -110,6 +110,7 @@ class GradientMixer {
 
         this._slider.addEventListener('input',   () => { this.updateDegreeValue(this._slider.value); this.updateGradient() })
         this._slider.addEventListener('mouseup', () => this.showHideValue('hide'))
+        this._slider.addEventListener('touchend', () => this.showHideValue('hide'))
 
         this._fieldsetRadio.addEventListener('change', () => {
             this._fieldsetRadio.querySelectorAll('label').forEach(label =>
