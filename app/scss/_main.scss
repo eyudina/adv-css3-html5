@@ -1,0 +1,83 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #f3f3f4;
+  font-family: $font-family-content;
+  font-size: 1em;
+  color: $text-color;
+}
+
+#{headings(1,6)} {
+  margin-left: 15px;
+  font-family: $font-family-heading;
+  font-weight: 400;
+
+  & + p {
+    margin-top: 0;
+  }
+}
+
+a {
+  color: $text-color;
+  text-decoration: none;
+  cursor: pointer;
+  transition: color 0.25s ease-out;
+  &:hover,
+  &:active,
+  &.active {
+    color: $primary-color;
+  }
+  &.link-filled {
+    color: $primary-color;
+    border-bottom: 1px dashed $primary-color;
+    transition: background-color 0.3s ease-out;
+    &:hover {
+      background-color: $primary-color;
+      color: white;
+    }
+  }
+}
+
+.gradient-background {
+  background: #e2e2e2;
+  background: linear-gradient(135deg, #e2e2e2, #c2c2c2);
+  @each $color-name, $colors in $gradient-color-list {
+    &--#{$color-name} {
+      @include gradient($colors);
+    }
+  }
+}
+
+.box__container {
+  display: flex;
+  flex-flow: row wrap;
+}
+
+.box {
+  position: relative;
+  float: left;
+  width: 150px;
+  height: 150px;
+  margin: 15px;
+  background-color: #e2e2e2;
+  font-weight: 500;
+  color: white;
+  border-radius: 3px;
+  box-shadow: 0 0 20px  0 rgba(0, 0, 0, 0.08),
+  0 6px 8px 0 rgba(0, 0, 0, 0.05);
+  transition: transform 0.3s ease-in-out;
+
+  @include sm() {
+    width: 100%;
+    height: 120px;
+  }
+
+  &:hover {
+    cursor: pointer;
+    transform: scale(1.05, 1.05);
+  }
+}

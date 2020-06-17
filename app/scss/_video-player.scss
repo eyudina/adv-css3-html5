@@ -1,0 +1,75 @@
+.player {
+  display: flex;
+  flex-direction: column;
+  align-self: flex-start;
+
+  .player__video {
+    margin: 15px;
+    border-radius: 3px;
+    box-shadow: 0 0  20px  0 rgba(0, 0, 0, 0.08),
+    0 6px 8px  0 rgba(0, 0, 0, 0.05);
+
+    @include sm() {
+      width: calc(100% - 15px * 2);
+    }
+  }
+
+  .player__controls {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: 5px 15px;
+  }
+
+  .player__controls--button {
+    position: relative;
+    margin: 5px;
+    padding: 0;
+    width: 60px;
+    height: 60px;
+    background: transparent;
+    border: 0;
+    border-radius: 50%;
+    box-shadow: 0 0  20px  0 rgba(0, 0, 0, 0.08),
+    0 6px 8px  0 rgba(0, 0, 0, 0.05);
+    transition: transform 0.2s ease-in;
+
+    &:active {
+      transform: scale(.9);
+    }
+
+    &:hover {
+      cursor: pointer;
+
+      &:after {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        width: inherit;
+        height: inherit;
+        border-radius: 50%;
+        background-color: transparentize(white, .9);
+      }
+    }
+    img {
+      width: inherit;
+      height: inherit;
+    }
+  }
+}
+
+.message {
+  max-width: 400px;
+  background-color: lighten($primary-color, 33%);
+  border: 2px solid $primary-color;
+  border-radius: 5px;
+  font-size: 14px;
+  line-height: 1.4;
+  color: #8f5b5b;
+  .message--heading {
+    font-weight: 600;
+  }
+}

@@ -1,0 +1,36 @@
+$font-family-heading: 'Quicksand', system-ui, -apple-system, sans-serif;
+$font-family-content: 'Open Sans', system-ui, -apple-system, sans-serif;
+
+$text-color: #58586e;
+
+$primary-color: #ff6347;
+$secondary-color: #4794ff;
+
+$gradient-color-list: (
+    'soft-purple': (#F97794, #623AA2),
+    'orange-ice-cream': (#FCCF31, #F55555),
+    'blue-sea': (#52E5E7, #130CB7),
+    'juicy-lime': (#FFF720, #3CD500),
+    'summer-sunset': (#FF9D6C, #BB4E75),
+    'underwater': (#79F1A4, #0E5CAD)
+);
+
+$screen-sm-max: 550px;
+$screen-md-min: 768px;
+$screen-lg-min: 960px;
+
+@mixin gradient($colors) {
+  background: linear-gradient(135deg, $colors);
+}
+
+@mixin sm { @media (max-width: #{$screen-sm-max}) {@content;} }
+@mixin md { @media (min-width: #{$screen-md-min}) {@content;} }
+@mixin lg { @media (min-width: #{$screen-lg-min}) {@content;} }
+
+@function headings($from:1, $to:6) {
+  @if $from == $to {
+    @return 'h#{$from}';
+  } @else {
+    @return 'h#{$from},' + headings($from+1, $to);
+  }
+}
