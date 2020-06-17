@@ -81,3 +81,18 @@ a {
     transform: scale(1.05, 1.05);
   }
 }
+
+.g-icon-copy {
+  mask: url('../assets/icons/copy.png');
+}
+
+.g-icon-home {
+  mask: url('../assets/icons/home.png');
+}
+
+.g-icon {
+  width: 20px;
+  height: 20px;
+  mask-size: cover;
+  background-color: black;
+}
