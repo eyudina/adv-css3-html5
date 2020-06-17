@@ -135,6 +135,9 @@ class GradientMixer {
                 this._copyBtn.innerHTML = 'Copy'
             }
         })
+        this._gradientBox.addEventListener('touchstart', () => {
+            this._copyBtn.innerHTML = 'Copied!'
+        })
     }
 
     updateDegreeValue(value) {
