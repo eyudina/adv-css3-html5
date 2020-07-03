@@ -1,0 +1,47 @@
+extends _layout
+
+block page-title
+    title Slideshow | Advanced HTML5 & CSS3
+
+prepend navigation
+    - var page = 'slideshow'
+
+block content-header
+    h2 Veiled Chameleon &#129422;
+
+block content
+    p
+        | One of the characteristics of the veiled chameleon is its changing color.
+        | The changing color has less to do with its surroundings but is influenced by its emotions.
+        | For example, gravid chameleons are dark green with blue and yellow spots.
+
+    - var path = 'assets/slideshow/'
+    - var images = { 'Watchful Chameleon':'chameleon_1.jpg', 'Confused Chameleon':'chameleon_2.jpg', 'Crouching Chameleon':'chameleon_3.jpg' }
+    - var images_count = Object.keys(images).length
+
+    mixin print-many(elem)
+        - var index = 1
+        while index <= images_count
+            if elem === 'radio'
+                input(type='radio' id=`image_${index}` name='image' class='hidden' checked=(index === 1 ? 'checked' : undefined))
+                - index++
+            else if elem === 'label'
+                label(for=`image_${index++}`)
+
+    .slideshow()
+        +print-many('radio')
+        .frame
+            ul.slides
+                each image, title in images
+                    li.slide
+                        img(src=`${path}${image}` srcset=`${path}@2x/${image} 2x` alt=`${title}`)
+            .dots
+                +print-many('label')
+            .arrows
+                +print-many('label')
+        .thumbs
+            - var index = 1
+            each image, title in images
+                label(for=`image_${index}` data-title=`${title}`)
+                    img(src=`${path}${image}` srcset=`${path}@2x/${image} 2x` alt=`${title}`)
+                - index++;

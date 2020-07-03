@@ -60,11 +60,11 @@ aside {
     margin: 15px;
     width: 25px;
     height: 25px;
-    background-color: $text-color;
+    background-color: transparentize($text-color, .3);
     transition: background-color 0.25s ease-out;
     &:hover,
     &:active {
-      background-color: transparentize($text-color, .2);
+      background-color: transparentize($text-color, .4);
     }
   }
 
@@ -120,7 +120,7 @@ nav {
     top: 0;
     left: 0;
     right: 0;
-    padding: 0 20px 10px 20px;
+    padding: 0 20px 20px 20px;
     transform: translateY(calc(-100% + 5px));
     transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1.0);
     border-bottom: 5px solid $secondary-color;

@@ -62,14 +62,15 @@
 }
 
 .message {
-  max-width: 400px;
+  margin-left: 15px;
+  width: 350px;
   background-color: lighten($primary-color, 33%);
   border: 2px solid $primary-color;
   border-radius: 5px;
   font-size: 14px;
   line-height: 1.4;
   color: #8f5b5b;
-  .message--heading {
+  .message__heading {
     font-weight: 600;
   }
 }
