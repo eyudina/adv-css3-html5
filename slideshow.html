@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Slideshow | Advanced HTML5 & CSS3</title>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="css/styles.css"/>
+  </head>
+  <body>
+    <div id="wrapper">
+      <header class="page__header">
+        <h1>Website for &#32;<a class="link-filled" href="https://education.gale.com/l-sfpl/online-courses/advanced-css3-html5">Advanced CSS3 and HTML5 class</a></h1>
+      </header>
+      <aside>
+        <label for="burger" tabindex="1"></label>
+        <input type="checkbox" id="burger" role="switch" aria-label="Main menu" tabindex="-1">
+        <div class="i-burger"><span></span><span></span><span></span></div><a href="index.html">
+          <div class="g-icon g-icon-home"></div></a>
+        <nav>
+          <header>
+            <h3>Links</h3>
+          </header>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="http://www.w3schools.com/">Reference: W3Schools</a></li>
+            <li><a href="gradient-mixer.html">Form: Gradient Mixer</a></li>
+            <li><a href="video.html">Video</a></li>
+            <li><a class="active" href="slideshow.html">Slideshow</a></li>
+          </ul>
+        </nav>
+      </aside>
+      <article>
+        <header>
+          <h2>Veiled Chameleon &#129422;</h2>
+        </header>
+        <p>
+          One of the characteristics of the veiled chameleon is its changing color.
+          The changing color has less to do with its surroundings but is influenced by its emotions.
+          For example, gravid chameleons are dark green with blue and yellow spots.
+        </p>
+        <div class="slideshow">
+                  <input class="hidden" type="radio" id="image_1" name="image" checked="checked">
+                  <input class="hidden" type="radio" id="image_2" name="image">
+                  <input class="hidden" type="radio" id="image_3" name="image">
+          <div class="frame">
+            <ul class="slides">
+              <li class="slide"><img src="assets/slideshow/chameleon_1.jpg" srcset="assets/slideshow/@2x/chameleon_1.jpg 2x" alt="Watchful Chameleon"></li>
+              <li class="slide"><img src="assets/slideshow/chameleon_2.jpg" srcset="assets/slideshow/@2x/chameleon_2.jpg 2x" alt="Confused Chameleon"></li>
+              <li class="slide"><img src="assets/slideshow/chameleon_3.jpg" srcset="assets/slideshow/@2x/chameleon_3.jpg 2x" alt="Crouching Chameleon"></li>
+            </ul>
+            <div class="dots">
+                      <label for="image_1"></label>
+                      <label for="image_2"></label>
+                      <label for="image_3"></label>
+            </div>
+            <div class="arrows">
+                      <label for="image_1"></label>
+                      <label for="image_2"></label>
+                      <label for="image_3"></label>
+            </div>
+          </div>
+          <div class="thumbs">
+            <label for="image_1" data-title="Watchful Chameleon"><img src="assets/slideshow/chameleon_1.jpg" srcset="assets/slideshow/@2x/chameleon_1.jpg 2x" alt="Watchful Chameleon"></label>
+            <label for="image_2" data-title="Confused Chameleon"><img src="assets/slideshow/chameleon_2.jpg" srcset="assets/slideshow/@2x/chameleon_2.jpg 2x" alt="Confused Chameleon"></label>
+            <label for="image_3" data-title="Crouching Chameleon"><img src="assets/slideshow/chameleon_3.jpg" srcset="assets/slideshow/@2x/chameleon_3.jpg 2x" alt="Crouching Chameleon"></label>
+          </div>
+        </div>
+      </article>
+      <footer class="page__footer">
+        <h5>Site by &#32;<a class="link-filled">EY</a></h5>
+      </footer>
+    </div>
+  </body>
+</html>

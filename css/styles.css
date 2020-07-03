@@ -52,10 +52,10 @@ aside {
     margin: 15px;
     width: 25px;
     height: 25px;
-    background-color: #58586e;
+    background-color: rgba(88, 88, 110, 0.7);
     transition: background-color 0.25s ease-out; }
     aside .g-icon-home:hover, aside .g-icon-home:active {
-      background-color: rgba(88, 88, 110, 0.8); }
+      background-color: rgba(88, 88, 110, 0.6); }
   @media (max-width: 550px) {
     aside {
       flex-direction: row-reverse;
@@ -98,7 +98,7 @@ nav {
       top: 0;
       left: 0;
       right: 0;
-      padding: 0 20px 10px 20px;
+      padding: 0 20px 20px 20px;
       transform: translateY(calc(-100% + 5px));
       transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1);
       border-bottom: 5px solid #4794ff;
@@ -223,6 +223,11 @@ a {
       background-color: #ff6347;
       color: white; }
 
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0; }
+
 .gradient-background {
   background: #e2e2e2;
   background: linear-gradient(135deg, #e2e2e2, #c2c2c2); }
@@ -325,14 +330,15 @@ a {
       height: inherit; }
 
 .message {
-  max-width: 400px;
+  margin-left: 15px;
+  width: 350px;
   background-color: #fff2ef;
   border: 2px solid #ff6347;
   border-radius: 5px;
   font-size: 14px;
   line-height: 1.4;
   color: #8f5b5b; }
-  .message .message--heading {
+  .message .message__heading {
     font-weight: 600; }
 
 .flex-grid {
@@ -594,5 +600,150 @@ fieldset[name='radio'] {
     border: none;
     background: #4794ff;
     cursor: pointer; }
+
+.slideshow .frame .arrows label:before, .slideshow .frame .arrows label:after {
+  background: url("../assets/icons/next.svg");
+  background-size: cover; }
+
+.slideshow {
+  width: 480px;
+  margin: 15px; }
+  .slideshow input[id='image_1']:checked ~ .frame .dots label[for='image_1'] {
+    background-color: white;
+    cursor: pointer; }
+  .slideshow input[id='image_1']:checked ~ .frame .slides .slide:nth-of-type(1) {
+    opacity: 1; }
+  .slideshow input[id='image_2']:checked ~ .frame .dots label[for='image_2'] {
+    background-color: white;
+    cursor: pointer; }
+  .slideshow input[id='image_2']:checked ~ .frame .slides .slide:nth-of-type(2) {
+    opacity: 1; }
+  .slideshow input[id='image_3']:checked ~ .frame .dots label[for='image_3'] {
+    background-color: white;
+    cursor: pointer; }
+  .slideshow input[id='image_3']:checked ~ .frame .slides .slide:nth-of-type(3) {
+    opacity: 1; }
+  .slideshow input[id^='image']:not(:checked) ~ .frame .dots label[for^='image']:hover {
+    background-color: white;
+    cursor: pointer; }
+  .slideshow input[id='image_1']:checked ~ .frame .arrows label[for='image_3']:before,
+  .slideshow input[id='image_1']:checked ~ .frame .arrows label[for='image_2']:after {
+    display: block; }
+  .slideshow input[id='image_2']:checked ~ .frame .arrows label[for='image_1']:before,
+  .slideshow input[id='image_2']:checked ~ .frame .arrows label[for='image_3']:after {
+    display: block; }
+  .slideshow input[id='image_3']:checked ~ .frame .arrows label[for='image_2']:before,
+  .slideshow input[id='image_3']:checked ~ .frame .arrows label[for='image_1']:after {
+    display: block; }
+  .slideshow .frame {
+    position: relative;
+    min-height: 360px;
+    background-color: #f5f6f9;
+    border-radius: 3px;
+    overflow: hidden; }
+    .slideshow .frame:after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      width: 100%;
+      height: 6px;
+      background-color: rgba(71, 72, 75, 0.9);
+      border-radius: 3px 3px 0 0; }
+    .slideshow .frame .slides {
+      position: relative;
+      width: 100%; }
+      .slideshow .frame .slides .slide {
+        position: absolute;
+        width: inherit;
+        opacity: 0;
+        transition: opacity .3s ease-in-out; }
+        .slideshow .frame .slides .slide img {
+          display: block;
+          width: inherit; }
+    .slideshow .frame .dots {
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      display: flex;
+      justify-content: center;
+      padding: 6px 0;
+      background-color: rgba(71, 72, 75, 0.8); }
+      .slideshow .frame .dots label {
+        width: 14px;
+        height: 14px;
+        border: 2px solid white;
+        border-radius: 50%;
+        transition: background-color .3s ease-out; }
+        .slideshow .frame .dots label:not(:last-of-type) {
+          margin-right: 5px; }
+    .slideshow .frame .arrows label {
+      cursor: pointer;
+      -webkit-user-select: none;
+         -moz-user-select: none;
+          -ms-user-select: none;
+              user-select: none; }
+      .slideshow .frame .arrows label:hover:before, .slideshow .frame .arrows label:hover:after {
+        opacity: 1; }
+      .slideshow .frame .arrows label:before, .slideshow .frame .arrows label:after {
+        display: none;
+        content: '';
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 50px;
+        height: 50px;
+        border: 2px solid white;
+        border-radius: 50%;
+        opacity: .7;
+        transition: opacity .3s ease-in-out; }
+      .slideshow .frame .arrows label:before {
+        transform: translateY(-50%) rotate(180deg);
+        left: 10px; }
+      .slideshow .frame .arrows label:after {
+        right: 10px; }
+  .slideshow .thumbs {
+    display: flex;
+    position: relative;
+    margin-top: 6px; }
+    .slideshow .thumbs label[for^='image'] {
+      position: relative;
+      display: flex;
+      flex-grow: 1;
+      width: 160px;
+      height: 120px;
+      background-color: #f5f6f9;
+      border-radius: 3px;
+      overflow: hidden;
+      cursor: pointer; }
+      .slideshow .thumbs label[for^='image']:not(:last-of-type) {
+        margin-right: 6px; }
+      .slideshow .thumbs label[for^='image'] img {
+        width: 100%;
+        transition: transform .2s ease-in-out; }
+      .slideshow .thumbs label[for^='image']:after {
+        opacity: 0;
+        content: attr(data-title);
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 30px;
+        font-size: 12px;
+        color: white;
+        background-color: rgba(71, 72, 75, 0.9);
+        transition: opacity .3s ease-in-out; }
+      .slideshow .thumbs label[for^='image']:hover:after {
+        opacity: 1; }
+      .slideshow .thumbs label[for^='image']:hover img {
+        transform: scale(1.1); }
+
+.hidden {
+  display: none; }
 
 /*# sourceMappingURL=maps/styles.css.map */
