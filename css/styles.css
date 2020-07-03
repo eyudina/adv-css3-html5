@@ -742,6 +742,19 @@ fieldset[name='radio'] {
         opacity: 1; }
       .slideshow .thumbs label[for^='image']:hover img {
         transform: scale(1.1); }
+  @media screen and (max-width: 480px) {
+    .slideshow {
+      margin: 20px auto;
+      width: 320px; }
+      .slideshow .frame {
+        min-height: 240px; }
+        .slideshow .frame .arrows label:before, .slideshow .frame .arrows label:after {
+          width: 35px;
+          height: 35px; }
+      .slideshow .thumbs label[for^='image'] {
+        height: 80px; }
+        .slideshow .thumbs label[for^='image']:after {
+          font-size: 9px; } }
 
 .hidden {
   display: none; }
