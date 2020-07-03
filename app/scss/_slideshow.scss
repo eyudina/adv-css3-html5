@@ -199,6 +199,27 @@ $slides-height: 360px;
       }
     }
   }
+
+  @media screen and (max-width: 480px) {
+    margin: 20px auto;
+    width: $slides-width / 1.5;
+    .frame {
+      min-height: $slides-height / 1.5;
+      .arrows label {
+        &:before,
+        &:after {
+          width: 35px;
+          height: 35px;
+        }
+      }
+    }
+    .thumbs label[for^='image'] {
+      height: $slides-height / 1.5 / $slides-count;
+      &:after {
+        font-size: 9px;
+      }
+    }
+  }
 }
 
 .hidden {
